@@ -4,10 +4,33 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>WizardCahill2 1.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>WizardCahill2.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>DCEBA7402BBC9F68006D6808</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DCEBA7502BBC9F6A006D6808</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DCEBA75A2BBC9F6A006D6808</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

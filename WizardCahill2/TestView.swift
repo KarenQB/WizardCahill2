@@ -10,6 +10,9 @@ import SwiftUI
 struct TestView: View {
     
     var question: Question
+    @StateObject private var questionService = QuestionService()
+
+    
     @State public var score: Int
     @State public var answered: Bool = false
     @State public var correct: Bool = false
@@ -69,11 +72,23 @@ struct TestView: View {
                             RoundedRectangle(cornerRadius: 40)
                                 .fill(answered ? Color.gray : Color.blue)
                         )
+                        
+                        Button {
+                        questionService.randomQuestion()
+                        } label : {
+                            Image(systemName: "arrowshape.right.circle.fill")
+                                .font(.system(size: 70))
+                                .foregroundStyle(answered ? Color.green : Color.gray)
+                               
+                        }.disabled(!answered)
+                            .position(x: 700, y: 50)
+                            
+                        }
                     }
                 }
             }
         }
-    }
+    
     func evaluate(answer: String) {
          answered = true
          if answer == question.correctAnswer {
