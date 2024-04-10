@@ -74,7 +74,7 @@ struct TestView: View {
                         )
                         
                         Button {
-                        questionService.randomQuestion()
+//                        questionService.randomQuestion()
                         } label : {
                             Image(systemName: "arrowshape.right.circle.fill")
                                 .font(.system(size: 70))

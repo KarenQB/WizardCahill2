@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC2FFA502BC6FFDF0067FC37 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2FFA4F2BC6FFDF0067FC37 /* ContentView.swift */; };
 		DCEBA7452BBC9F68006D6808 /* WizardCahill2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEBA7442BBC9F68006D6808 /* WizardCahill2App.swift */; };
 		DCEBA74C2BBC9F6A006D6808 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCEBA74B2BBC9F6A006D6808 /* Preview Assets.xcassets */; };
 		DCEBA7562BBC9F6A006D6808 /* WizardCahill2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEBA7552BBC9F6A006D6808 /* WizardCahill2Tests.swift */; };
 		DCEBA7602BBC9F6A006D6808 /* WizardCahill2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEBA75F2BBC9F6A006D6808 /* WizardCahill2UITests.swift */; };
 		DCEBA7622BBC9F6A006D6808 /* WizardCahill2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEBA7612BBC9F6A006D6808 /* WizardCahill2UITestsLaunchTests.swift */; };
 		DCEBA7782BBC9F83006D6808 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCEBA76E2BBC9F83006D6808 /* Assets.xcassets */; };
-		DCEBA7792BBC9F83006D6808 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEBA76F2BBC9F83006D6808 /* ContentView.swift */; };
 		DCEBA77A2BBC9F83006D6808 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEBA7702BBC9F83006D6808 /* StatusView.swift */; };
 		DCEBA77B2BBC9F83006D6808 /* Truecat.otf in Resources */ = {isa = PBXBuildFile; fileRef = DCEBA7712BBC9F83006D6808 /* Truecat.otf */; };
 		DCEBA77C2BBC9F83006D6808 /* TestButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEBA7722BBC9F83006D6808 /* TestButton.swift */; };
@@ -42,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC2FFA4F2BC6FFDF0067FC37 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DCEBA7412BBC9F68006D6808 /* WizardCahill2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WizardCahill2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCEBA7442BBC9F68006D6808 /* WizardCahill2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardCahill2App.swift; sourceTree = "<group>"; };
 		DCEBA74B2BBC9F6A006D6808 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -51,7 +52,6 @@
 		DCEBA75F2BBC9F6A006D6808 /* WizardCahill2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardCahill2UITests.swift; sourceTree = "<group>"; };
 		DCEBA7612BBC9F6A006D6808 /* WizardCahill2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardCahill2UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DCEBA76E2BBC9F83006D6808 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../WizardCahill/WizardCahill/Assets.xcassets; sourceTree = "<group>"; };
-		DCEBA76F2BBC9F83006D6808 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../../WizardCahill/WizardCahill/ContentView.swift; sourceTree = "<group>"; };
 		DCEBA7702BBC9F83006D6808 /* StatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		DCEBA7712BBC9F83006D6808 /* Truecat.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Truecat.otf; sourceTree = "<group>"; };
 		DCEBA7722BBC9F83006D6808 /* TestButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestButton.swift; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 				DCEBA7822BBC9FBD006D6808 /* Info.plist */,
 				DCEBA76E2BBC9F83006D6808 /* Assets.xcassets */,
 				DCEBA7742BBC9F83006D6808 /* BackgroundImage.swift */,
-				DCEBA76F2BBC9F83006D6808 /* ContentView.swift */,
+				DC2FFA4F2BC6FFDF0067FC37 /* ContentView.swift */,
 				DCEBA7772BBC9F83006D6808 /* LearnService.swift */,
 				DCEBA7732BBC9F83006D6808 /* LearnView.swift */,
 				DCEBA7762BBC9F83006D6808 /* QuestionService.swift */,
@@ -287,9 +287,9 @@
 				DCEBA77F2BBC9F83006D6808 /* TestView.swift in Sources */,
 				DCEBA7802BBC9F83006D6808 /* QuestionService.swift in Sources */,
 				DCEBA77D2BBC9F83006D6808 /* LearnView.swift in Sources */,
-				DCEBA7792BBC9F83006D6808 /* ContentView.swift in Sources */,
 				DCEBA7452BBC9F68006D6808 /* WizardCahill2App.swift in Sources */,
 				DCEBA77E2BBC9F83006D6808 /* BackgroundImage.swift in Sources */,
+				DC2FFA502BC6FFDF0067FC37 /* ContentView.swift in Sources */,
 				DCEBA77A2BBC9F83006D6808 /* StatusView.swift in Sources */,
 				DCEBA7812BBC9F83006D6808 /* LearnService.swift in Sources */,
 				DCEBA77C2BBC9F83006D6808 /* TestButton.swift in Sources */,
