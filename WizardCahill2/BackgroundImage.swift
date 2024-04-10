@@ -12,11 +12,6 @@ struct BackgroundImage: View {
                 .opacity(0.6)
                 .ignoresSafeArea()
            
-            Image("3clouds")
-                .resizable()
-                .scaledToFit()
-                .position(CGPoint(x: 430.0, y: 300.0))
-            
             GeometryReader { geo in
                 VStack(spacing: -1) {
                     Image("stars")
