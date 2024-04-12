@@ -1,5 +1,5 @@
 //
-//  TestView.swift
+//  LearnView.swift
 //  WizardCahill
 //
 //  Created by Karen Seimears on 3/29/24.
@@ -7,104 +7,123 @@
 
 import SwiftUI
 
-struct TestView: View {
-    
-    var question: Question
-    @StateObject private var questionService = QuestionService()
+struct Learn {
+    var id = UUID()
+    var title: String
+    var subtitle: String
+    var explore: String
+    var exploreURL: String
+    var dos: [String]
+    var extends: [String]
+    var topic: Topics
+}
 
+enum Topics {
+    case ipad
+    case troubleshooting
+    case pages
+    case numbers
+    case keynote
+    case videoProd
+}
+
+struct LearnView: View {
     
-    @State public var score: Int
-    @State public var answered: Bool = false
-    @State public var correct: Bool = false
-    @State public var startQuiz: Bool = false
+    @StateObject private var learnService = LearnService()
+
     
     var body: some View {
         ZStack {
             BackgroundImage()
-                .colorMultiply(.cyan)
-            Color.cyan
+            Color.green
                 .ignoresSafeArea()
-                .opacity(0.2)
-            
-            
-            ScrollView {
-               
-                Button{
-                    startQuiz = true
-                } label: {
-                    Text("Start Quiz")
-                }.buttonStyle(TestButton())
-                    .background(Color.black)
-                    .padding(50)
+                .opacity(0.4)
+           
+            VStack {
                 
-                if startQuiz {
-                    VStack{
-                        Text(question.title)
-                            .font(Font.custom("Truecat", size: 60))
-
-                        
+                Text("Learn")
+                    .foregroundStyle(Color.green)
+                    .shadow(color: .black, radius: 2)
+                    .font(Font.custom("Truecat", size: 100))
+                
+                Spacer()
+                
+                HStack {
+                    NavigationLink(destination: LearnCategoryDetailView(learn: Learn(title: "Error", subtitle: "error", explore: "error", exploreURL: "error", dos: [""], extends: [""], topic: .ipad))) {
                         VStack {
-                            Text(question.prompt)
-                                .font(.system(size: 60))
-                                .padding(35)
-                            
-                            Group { //buttons
-                                Button(question.answers[0]){
-                                    evaluate(answer: question.answers[0])
-                                }.disabled(answered)
-                                    .buttonStyle(TestButton())
-                                Button(question.answers[1]){
-                                    evaluate(answer: question.answers[1])
-                                }.disabled(answered)
-                                    .buttonStyle(TestButton())
-                                
-                                Button(question.answers[2]){
-                                    evaluate(answer: question.answers[2])
-                                }.disabled(answered)
-                                    .buttonStyle(TestButton())
-                                
-                                Button(question.answers[3]){
-                                    evaluate(answer: question.answers[3])
-                                }.disabled(answered)
-                                    .buttonStyle(TestButton())
-                            }
-                        }.background(
-                            RoundedRectangle(cornerRadius: 40)
-                                .fill(answered ? Color.gray : Color.blue)
-                        )
-                        
-                        Button {
-//                        questionService.randomQuestion()
-                        } label : {
-                            Image(systemName: "arrowshape.right.circle.fill")
-                                .font(.system(size: 70))
-                                .foregroundStyle(answered ? Color.green : Color.gray)
-                               
-                        }.disabled(!answered)
-                            .position(x: 700, y: 50)
-                            
-                        }
+                            Image("ipadBasics")
+                                .resizable()
+                                .frame(width: 400, height: 200)
+                        } .foregroundColor(.green)
+                    }
+                    
+                    
+                    NavigationLink(destination: LearnCategoryDetailView(learn: Learn(title: "Error", subtitle: "error", explore: "error", exploreURL: "error", dos: [""], extends: [""], topic: .ipad))) {
+                        VStack {
+                            Image("troubleCloud")
+                                .resizable()
+                                .frame(width: 400, height: 200)
+                        } .foregroundColor(.green)
                     }
                 }
+                
+                HStack {
+                    NavigationLink(destination: LearnCategoryDetailView(learn: Learn(title: "Error", subtitle: "error", explore: "error", exploreURL: "error", dos: [""], extends: [""], topic: .ipad))) {
+                        VStack {
+                            Image("pagesCloud")
+                                .resizable()
+                                .frame(width: 400, height: 200)
+                        } .foregroundColor(.green)
+                    }
+                    NavigationLink(destination: LearnCategoryDetailView(learn: Learn(title: "Error", subtitle: "error", explore: "error", exploreURL: "error", dos: [""], extends: [""], topic: .ipad))) {
+                        VStack {
+                            Image("numbersCloud")
+                                .resizable()
+                                .frame(width: 400, height: 200)
+                        } .foregroundColor(.green)
+                    }
+                }
+                HStack {
+                    Spacer()
+                    NavigationLink(destination: LearnCategoryDetailView(learn: Learn(title: "Error", subtitle: "error", explore: "error", exploreURL: "error", dos: [""], extends: [""], topic: .ipad))) {
+                        VStack {
+                            Image("keynoteCloud")
+                                .resizable()
+                                .frame(width: 400, height: 200)
+                        } .foregroundColor(.green)
+                    }
+                    Spacer()
+                    
+                    NavigationLink(destination: LearnCategoryDetailView(learn: Learn(title: "Error", subtitle: "error", explore: "error", exploreURL: "error", dos: [""], extends: [""], topic: .ipad))) {
+                        VStack {
+                            Image("videoProdcloud")
+                                .resizable()
+                                .frame(width: 400, height: 200)
+                        } .foregroundColor(.green)
+                        Spacer()
+                    }
+                }
+
+                Spacer()
+                
+                HStack {
+                    Text("Pick a subject to explore!")
+                        .multilineTextAlignment(.center)
+                        .foregroundStyle(Color.green)
+                        .shadow(color: .black, radius: 2)
+                        .font(Font.custom("Truecat", size: 80))
+                        .padding(50)
+
+                }
+                Spacer()
             }
+            
         }
-    
-    func evaluate(answer: String) {
-         answered = true
-         if answer == question.correctAnswer {
-             correct = true
-             score += 20
-         }
-     }
-}
-#Preview {
-    TestView(question: Question(title: "iPad Basics", prompt: "What is the button at the bottom of the screen?", answers: ["Home", "Power", "Sleep", "Settings"], correctAnswer: "Home"), score: 0)
+    }
 }
 
-struct Question {
-    var id = UUID()
-    var title: String
-    var prompt: String
-    var answers: [String]
-    var correctAnswer: String
+#Preview {
+    LearnView()
 }
+
+
