@@ -7,12 +7,31 @@
 
 import SwiftUI
 
+struct Question {
+    var id = UUID()
+    var title: String
+    var prompt: String
+    var answers: [String]
+    var correctAnswer: String
+    var subject: Subject
+}
+
+enum Subject {
+    case ipad
+    case troubleshooting
+    case pages
+    case keynote
+    case numbers
+    case videoProd
+}
+
 struct TestDetailView: View {
     
     var question: Question
    
     @StateObject private var questionService = QuestionService()
-
+    
+    @StateObject private var status = StatusProgress(ipadPassed: false, troublePassed: false, videoProdPassed: false, pagesPassed: false, keynotePassed: false, numbersPassed: false, progress: 0)
     
     @State public var score: Int
     @State public var answered: Bool = false
@@ -22,8 +41,7 @@ struct TestDetailView: View {
     var body: some View {
         ZStack {
             BackgroundImage()
-                .colorMultiply(.cyan)
-            Color.cyan
+            Color.purple
                 .ignoresSafeArea()
                 .opacity(0.2)
             
@@ -34,9 +52,17 @@ struct TestDetailView: View {
                     startQuiz = true
                 } label: {
                     Text("Start Quiz")
-                }.buttonStyle(TestButton())
-                    .background(Color.black)
-                    .padding(50)
+                        .font(.largeTitle)
+                }.padding()
+                .foregroundColor(.white)
+                .background(
+                    RoundedRectangle(
+                        cornerRadius: 10,
+                        style: .continuous
+                    ))
+                .foregroundColor(.purple)
+                .padding(50)
+
                 
                 if startQuiz {
                     VStack{
@@ -48,6 +74,7 @@ struct TestDetailView: View {
                             Text(question.prompt)
                                 .font(.system(size: 60))
                                 .padding(35)
+                                .frame(width: 400)
                             
                             Group { //buttons
                                 Button(question.answers[0]){
@@ -71,7 +98,7 @@ struct TestDetailView: View {
                             }
                         }.background(
                             RoundedRectangle(cornerRadius: 40)
-                                .fill(answered ? Color.gray : Color.blue)
+                                .fill(answered ? Color.gray : Color.purple)
                         )
                         
                         Button {
@@ -79,7 +106,7 @@ struct TestDetailView: View {
                         } label : {
                             Image(systemName: "arrowshape.right.circle.fill")
                                 .font(.system(size: 70))
-                                .foregroundStyle(answered ? Color.green : Color.gray)
+                                .foregroundStyle(answered ? Color.purple : Color.gray)
                                
                         }.disabled(!answered)
                             .position(x: 700, y: 50)
@@ -98,14 +125,7 @@ struct TestDetailView: View {
          }
      }
 }
-#Preview {
-    TestDetailView(question: Question(title: "iPad Basics", prompt: "What is the button at the bottom of the screen?", answers: ["Home", "Power", "Sleep", "Settings"], correctAnswer: "Home"), score: 0)
-}
 
-struct Question {
-    var id = UUID()
-    var title: String
-    var prompt: String
-    var answers: [String]
-    var correctAnswer: String
+#Preview {
+    TestDetailView(question: Question(title: "Error", prompt: "Error?", answers: ["1","2","3","4"], correctAnswer: "4", subject: .ipad), score: 0)
 }

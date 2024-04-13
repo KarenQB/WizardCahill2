@@ -7,97 +7,83 @@
 
 import SwiftUI
 
-struct Learn {
-    var id = UUID()
-    var title: String
-    var subtitle: String
-    var explore: String
-    var exploreURL: String
-    var dos: [String]
-    var extends: [String]
-    var topic: Topics
-}
-
-enum Topics {
-    case ipad
-    case troubleshooting
-    case pages
-    case numbers
-    case keynote
-    case videoProd
-}
-
-struct LearnView: View {
+struct TestView: View {
     
-    @StateObject private var learnService = LearnService()
-
+    @StateObject private var questionService = QuestionService()
+    
+    let columns = [
+           GridItem(.adaptive(minimum: 300))
+       ]
     
     var body: some View {
         ZStack {
             BackgroundImage()
-            Color.green
+            Color.purple
                 .ignoresSafeArea()
-                .opacity(0.4)
+                .opacity(0.2)
            
             VStack {
                 
-                Text("Learn")
-                    .foregroundStyle(Color.green)
+                Text("Test")
+                    .foregroundStyle(Color.purple)
                     .shadow(color: .black, radius: 2)
                     .font(Font.custom("Truecat", size: 100))
                 
                 Spacer()
                 
-                HStack {
-                    NavigationLink(destination: LearnCategoryDetailView(learn: Learn(title: "Error", subtitle: "error", explore: "error", exploreURL: "error", dos: [""], extends: [""], topic: .ipad))) {
+                LazyVGrid(columns: columns, spacing: 20) {
+
+                    NavigationLink(destination: TestDetailView(question: Question(title: "Error", prompt: "Error?", answers: ["1","2","3","4"], correctAnswer: "4", subject: .ipad), score: 0)) {
                         VStack {
                             Image("ipadBasics")
                                 .resizable()
+                                .shadow(color: .black, radius: 2)
                                 .frame(width: 400, height: 200)
-                        } .foregroundColor(.green)
+                        } .foregroundColor(.purple)
                     }
                     
                     
-                    NavigationLink(destination: LearnCategoryDetailView(learn: Learn(title: "Error", subtitle: "error", explore: "error", exploreURL: "error", dos: [""], extends: [""], topic: .ipad))) {
+                    NavigationLink(destination: TestView()) {
                         VStack {
                             Image("troubleCloud")
                                 .resizable()
+                                .shadow(color: .black, radius: 2)
                                 .frame(width: 400, height: 200)
-                        } .foregroundColor(.green)
+                        } .foregroundColor(.purple)
                     }
-                }
                 
-                HStack {
-                    NavigationLink(destination: LearnCategoryDetailView(learn: Learn(title: "Error", subtitle: "error", explore: "error", exploreURL: "error", dos: [""], extends: [""], topic: .ipad))) {
+                
+                    NavigationLink(destination: TestView()) {
                         VStack {
                             Image("pagesCloud")
                                 .resizable()
+                                .shadow(color: .black, radius: 2)
                                 .frame(width: 400, height: 200)
                         } .foregroundColor(.green)
                     }
-                    NavigationLink(destination: LearnCategoryDetailView(learn: Learn(title: "Error", subtitle: "error", explore: "error", exploreURL: "error", dos: [""], extends: [""], topic: .ipad))) {
+                    NavigationLink(destination: TestView()) {
                         VStack {
                             Image("numbersCloud")
                                 .resizable()
+                                .shadow(color: .black, radius: 2)
                                 .frame(width: 400, height: 200)
                         } .foregroundColor(.green)
                     }
-                }
-                HStack {
-                    Spacer()
-                    NavigationLink(destination: LearnCategoryDetailView(learn: Learn(title: "Error", subtitle: "error", explore: "error", exploreURL: "error", dos: [""], extends: [""], topic: .ipad))) {
+                
+                    NavigationLink(destination: TestView()) {
                         VStack {
                             Image("keynoteCloud")
                                 .resizable()
+                                .shadow(color: .black, radius: 2)
                                 .frame(width: 400, height: 200)
                         } .foregroundColor(.green)
                     }
-                    Spacer()
                     
-                    NavigationLink(destination: LearnCategoryDetailView(learn: Learn(title: "Error", subtitle: "error", explore: "error", exploreURL: "error", dos: [""], extends: [""], topic: .ipad))) {
+                    NavigationLink(destination: TestView()) {
                         VStack {
-                            Image("videoProdcloud")
+                            Image("videoProdCloud")
                                 .resizable()
+                                .shadow(color: .black, radius: 2)
                                 .frame(width: 400, height: 200)
                         } .foregroundColor(.green)
                         Spacer()
@@ -107,9 +93,9 @@ struct LearnView: View {
                 Spacer()
                 
                 HStack {
-                    Text("Pick a subject to explore!")
+                    Text("Pick a subject to test!")
                         .multilineTextAlignment(.center)
-                        .foregroundStyle(Color.green)
+                        .foregroundStyle(Color.purple)
                         .shadow(color: .black, radius: 2)
                         .font(Font.custom("Truecat", size: 80))
                         .padding(50)
@@ -123,7 +109,7 @@ struct LearnView: View {
 }
 
 #Preview {
-    LearnView()
+    TestView()
 }
 
 

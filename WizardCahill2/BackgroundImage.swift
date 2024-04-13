@@ -3,22 +3,20 @@ import SwiftUI
 struct BackgroundImage: View {
     
     @State var animate: Bool = false
-    let animation: Animation = Animation.linear(duration: 130.0).repeatForever(autoreverses: false)
+    let animation: Animation = Animation.linear(duration: 30.0).repeatForever(autoreverses: false)
     
     
     var body: some View {
         ZStack {
-            Color.indigo
-                .opacity(0.6)
-                .ignoresSafeArea()
-           
+
             GeometryReader { geo in
-                VStack(spacing: -1) {
-                    Image("stars")
+                VStack {
+                    Image("starsWide")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
+                        .frame(height: geo.size.height, alignment: .leading)
                     
-                    Image("stars")
+                    Image("starsWide")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: geo.size.width, alignment: .leading)

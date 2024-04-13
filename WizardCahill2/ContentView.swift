@@ -17,7 +17,9 @@ struct ContentView: View {
         NavigationView {
             ZStack {
                 BackgroundImage()
-                
+                Color.indigo
+                    .ignoresSafeArea()
+                    .opacity(0.4)
                 
                 Group {
                     Image("cahill")
@@ -44,7 +46,7 @@ struct ContentView: View {
                         }
                         
                         
-                        NavigationLink(destination: TestView(question: questionService.randomQuestion(), score: 0)) {
+                        NavigationLink(destination: TestView()) {
                             VStack {
                                 Image("testCloud")
                                     .resizable()
