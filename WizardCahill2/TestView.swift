@@ -9,11 +9,11 @@ import SwiftUI
 
 struct TestView: View {
     
-    @StateObject private var questionService = QuestionService()
+    let questionService = QuestionService()
     
     let columns = [
-           GridItem(.adaptive(minimum: 300))
-       ]
+        GridItem(.adaptive(minimum: 300))
+    ]
     
     var body: some View {
         ZStack {
@@ -21,7 +21,7 @@ struct TestView: View {
             Color.purple
                 .ignoresSafeArea()
                 .opacity(0.2)
-           
+            
             VStack {
                 
                 Text("Test")
@@ -32,18 +32,19 @@ struct TestView: View {
                 Spacer()
                 
                 LazyVGrid(columns: columns, spacing: 20) {
-
-                    NavigationLink(destination: TestDetailView(question: Question(title: "Error", prompt: "Error?", answers: ["1","2","3","4"], correctAnswer: "4", subject: .ipad), score: 0)) {
+                    
+                    NavigationLink(destination: TestDetailView(subject: .ipad, questionService: questionService, question: questionService.fetchRandomQuestionForSubject(.ipad)!)) {
                         VStack {
                             Image("ipadBasics")
                                 .resizable()
                                 .shadow(color: .black, radius: 2)
                                 .frame(width: 400, height: 200)
-                        } .foregroundColor(.purple)
+                        }
+                        .foregroundColor(.purple)
                     }
                     
                     
-                    NavigationLink(destination: TestView()) {
+                    NavigationLink(destination: TestDetailView(subject: .troubleshooting, questionService: questionService, question: questionService.fetchRandomQuestionForSubject(.troubleshooting)!)) {
                         VStack {
                             Image("troubleCloud")
                                 .resizable()
@@ -51,9 +52,9 @@ struct TestView: View {
                                 .frame(width: 400, height: 200)
                         } .foregroundColor(.purple)
                     }
-                
-                
-                    NavigationLink(destination: TestView()) {
+                    
+                    
+                    NavigationLink(destination: TestDetailView(subject: .pages, questionService: questionService, question: questionService.fetchRandomQuestionForSubject(.pages)!)) {
                         VStack {
                             Image("pagesCloud")
                                 .resizable()
@@ -61,7 +62,8 @@ struct TestView: View {
                                 .frame(width: 400, height: 200)
                         } .foregroundColor(.green)
                     }
-                    NavigationLink(destination: TestView()) {
+                    
+                    NavigationLink(destination: TestDetailView(subject: .numbers, questionService: questionService, question: questionService.fetchRandomQuestionForSubject(.numbers)!)) {
                         VStack {
                             Image("numbersCloud")
                                 .resizable()
@@ -69,8 +71,8 @@ struct TestView: View {
                                 .frame(width: 400, height: 200)
                         } .foregroundColor(.green)
                     }
-                
-                    NavigationLink(destination: TestView()) {
+                    
+                    NavigationLink(destination: TestDetailView(subject: .keynote, questionService: questionService, question: questionService.fetchRandomQuestionForSubject(.keynote)!)) {
                         VStack {
                             Image("keynoteCloud")
                                 .resizable()
@@ -79,8 +81,9 @@ struct TestView: View {
                         } .foregroundColor(.green)
                     }
                     
-                    NavigationLink(destination: TestView()) {
+                    NavigationLink(destination: TestDetailView(subject: .videoProd, questionService: questionService, question: questionService.fetchRandomQuestionForSubject(.videoProd)!)) {
                         VStack {
+                            
                             Image("videoProdCloud")
                                 .resizable()
                                 .shadow(color: .black, radius: 2)
@@ -89,7 +92,7 @@ struct TestView: View {
                         Spacer()
                     }
                 }
-
+                
                 Spacer()
                 
                 HStack {
@@ -99,15 +102,15 @@ struct TestView: View {
                         .shadow(color: .black, radius: 2)
                         .font(Font.custom("Truecat", size: 80))
                         .padding(50)
-
+                    
                 }
                 Spacer()
             }
             
         }
     }
-}
 
+}
 #Preview {
     TestView()
 }

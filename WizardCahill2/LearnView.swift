@@ -49,7 +49,7 @@ struct LearnView: View {
                 Spacer()
                 
                 HStack {
-                    NavigationLink(destination: LearnCategoryDetailView(learn: Learn(title: "Error", subtitle: "error", explore: "error", exploreURL: "error", dos: [""], extends: [""], topic: .ipad))) {
+                    NavigationLink(destination: LearnCategoryDetailView(learn: Learn(title: "", subtitle: "", explore: "", exploreURL: "", dos: [""], extends: [""], topic: .ipad))) {
                         VStack {
                             Image("ipadBasics")
                                 .resizable()

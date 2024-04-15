@@ -14,6 +14,7 @@
 		DC0E257B2BC9BA74008CE3D8 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0E25792BC9BA74008CE3D8 /* TestView.swift */; };
 		DC0E257C2BC9BA74008CE3D8 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0E25792BC9BA74008CE3D8 /* TestView.swift */; };
 		DC2FFA502BC6FFDF0067FC37 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2FFA4F2BC6FFDF0067FC37 /* ContentView.swift */; };
+		DCA8834B2BCD82CA00C72627 /* LearnCategorySubtitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA8834A2BCD82CA00C72627 /* LearnCategorySubtitleView.swift */; };
 		DCEBA7452BBC9F68006D6808 /* WizardCahill2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEBA7442BBC9F68006D6808 /* WizardCahill2App.swift */; };
 		DCEBA74C2BBC9F6A006D6808 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCEBA74B2BBC9F6A006D6808 /* Preview Assets.xcassets */; };
 		DCEBA7562BBC9F6A006D6808 /* WizardCahill2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEBA7552BBC9F6A006D6808 /* WizardCahill2Tests.swift */; };
@@ -51,6 +52,7 @@
 		DC0E25692BC83F3C008CE3D8 /* LearnCategoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnCategoryDetailView.swift; sourceTree = "<group>"; };
 		DC0E25792BC9BA74008CE3D8 /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		DC2FFA4F2BC6FFDF0067FC37 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DCA8834A2BCD82CA00C72627 /* LearnCategorySubtitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnCategorySubtitleView.swift; sourceTree = "<group>"; };
 		DCEBA7412BBC9F68006D6808 /* WizardCahill2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WizardCahill2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCEBA7442BBC9F68006D6808 /* WizardCahill2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardCahill2App.swift; sourceTree = "<group>"; };
 		DCEBA74B2BBC9F6A006D6808 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				DC2FFA4F2BC6FFDF0067FC37 /* ContentView.swift */,
 				DCEBA7732BBC9F83006D6808 /* LearnView.swift */,
 				DC0E25692BC83F3C008CE3D8 /* LearnCategoryDetailView.swift */,
+				DCA8834A2BCD82CA00C72627 /* LearnCategorySubtitleView.swift */,
 				DCEBA7772BBC9F83006D6808 /* LearnService.swift */,
 				DCEBA7762BBC9F83006D6808 /* QuestionService.swift */,
 				DC0E25792BC9BA74008CE3D8 /* TestView.swift */,
@@ -299,6 +302,7 @@
 				DC0E257A2BC9BA74008CE3D8 /* TestView.swift in Sources */,
 				DCEBA77D2BBC9F83006D6808 /* LearnView.swift in Sources */,
 				DCEBA7452BBC9F68006D6808 /* WizardCahill2App.swift in Sources */,
+				DCA8834B2BCD82CA00C72627 /* LearnCategorySubtitleView.swift in Sources */,
 				DCEBA77E2BBC9F83006D6808 /* BackgroundImage.swift in Sources */,
 				DC0E256A2BC83F3C008CE3D8 /* LearnCategoryDetailView.swift in Sources */,
 				DC2FFA502BC6FFDF0067FC37 /* ContentView.swift in Sources */,

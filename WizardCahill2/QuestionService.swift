@@ -5,15 +5,82 @@ import Foundation
 class QuestionService: ObservableObject {
     
     var questionBank = [Question]()
-    
+    var askedQuestions = [Question]()
+    var currentQuestion: Question?
+    var answered: Bool = false
+    var correct: Bool = false
+
     init(){
         loadQuestions()
+    }
+    
+    func randomQuestionForSubject(_ subject: Subject) -> Question? {
+        let filteredQuestions = questionBank.filter { $0.subject == subject }
+        return filteredQuestions.randomElement()
+    }
+
+    func fetchRandomQuestionForSubject(_ subject: Subject) -> Question? {
+        var newQuestion = randomQuestionForSubject(subject)
         
+        while let question = newQuestion, askedQuestions.contains(where: { $0.id == question.id }) {
+            newQuestion = randomQuestionForSubject(subject)
+        }
+        
+        if let question = newQuestion {
+            currentQuestion = question
+            askedQuestions.append(question)
+            answered = false
+            correct = false
+        }
+        
+        return newQuestion // Add this return statement
     }
     
     func loadQuestions() {
-      
-        questionBank.append(Question(title: "iPad Basics- Jokes", prompt: "How do you stop a car?", answers: ["Press and Hold- select Dock","Press and Drag to Dock","Press and Hold- Drag to Dock","Settings - General - Arrange Dock"], correctAnswer: "Press and Drag to Dock", subject: .ipad))
+        
+        
+        //ipad basics
+        
+        questionBank.append(Question(title: "iPad Basics- Dock", prompt: "How do you move apps into your dock?", answers: ["Press and Hold- select Dock","Press and Drag to Dock","Press and Hold- Drag to Dock","Settings - General - Arrange Dock"], correctAnswer: "Press and Drag to Dock", subject: .ipad))
+        
+        
+        questionBank.append(Question(title: "iPad Basics- Apps", prompt: "What app do you use to install new apps?", answers: ["Self Service","App Store","Settings","You can't."], correctAnswer: "Self Service", subject: .ipad))
+        
+        questionBank.append(Question(title: "iPad Basics- Apps", prompt: "To organize your apps into similar groups:", answers: ["Separate them by pages","Drag them into folders","Rename them alphabetically","The layout is locked"], correctAnswer: "Drag them into folders", subject: .ipad))
+        
+        
+        questionBank.append(Question(title: "iPad Basics", prompt: "Where do you find the mirror to Apple TV option?", answers: ["Projector","Self Service","Dock","Control Center"], correctAnswer: "Control Center", subject: .ipad))
+        
+        
+        questionBank.append(Question(title: "iPad Basics- Camera", prompt: "When you hold your finger on the screen in camera mode, you:", answers: ["Take a screenshot","Record a live photo","Lock focus and exposure","Shut down the camera app"], correctAnswer: "Lock focus and exposure", subject: .ipad))
+        
+        
+        questionBank.append(Question(title: "iPad Basics- Accessibility", prompt: "What is the features to have your iPad read text?", answers: ["Read Aloud","Spoken Content","Speak Text","Read to Me"], correctAnswer: "Spoken Content", subject: .ipad))
+        
+        
+        questionBank.append(Question(title: "iPad Basics- Notes", prompt: "Which CANNOT be added to a note while in Notes?", answers: ["Photos","Videos","Charts","Drawings"], correctAnswer: "Charts", subject: .ipad))
+        
+        
+        questionBank.append(Question(title: "iPad Basics- Notes", prompt: "How can you organize Notes?", answers: ["Separate them by pages","Organize with folders","Alphabetically","In files"], correctAnswer: "Organize with folders", subject: .ipad))
+        
+        
+        questionBank.append(Question(title: "iPad Basics- Control Center", prompt: "T/F- The microphone is ON by default for screen recordings.", answers: ["True","False"], correctAnswer: "False", subject: .ipad))
+        
+        
+        questionBank.append(Question(title: "iPad Basics- Translate", prompt: "The iPad can only translate into English, Spanish and French.", answers: ["True","False"], correctAnswer: "False", subject: .ipad))
+        
+        
+        questionBank.append(Question(title: "iPad Basics- Languages", prompt: "What app is built in to the iPad for translating into various languages?", answers: ["Translate","Spoken Content","Settings","World Languages"], correctAnswer: "Translate", subject: .ipad))
+        
+        
+        questionBank.append(Question(title: "iPad Basics- Notes", prompt: "How do you set the title of a Note?", answers: ["Swipe and Edit","The title is the first line","Change it in Files","Type it in bold"], correctAnswer: "The title is the first line", subject: .ipad))
+        
+        questionBank.append(Question(title: "iPad Basics- Notes", prompt: "Which item IS NOT in Control Center?", answers: ["Screen Mirroring","Bluetooth","Wifi","Drive"], correctAnswer: "Drive", subject: .ipad))
+        
+        questionBank.append(Question(title: "iPad Basics- Camera", prompt: "Which two buttons take a screenshot?", answers: ["Home and Volume up","Home and Volume down","Home and Power","Volume up and down"], correctAnswer: "Home and Power", subject: .ipad))
+        
+        
+        //video production
         
         questionBank.append(Question(title: "Video Production- Clips", prompt: "What is Clips", answers: ["Press and Hold- select Dock","Press and Drag to Dock","Press and Hold- Drag to Dock","Settings - General - Arrange Dock"], correctAnswer: "Press and Drag to Dock", subject: .videoProd))
         
@@ -25,17 +92,9 @@ class QuestionService: ObservableObject {
         
         questionBank.append(Question(title: "Pages- Exporting", prompt: "What format makes a Pages file open as a multitouch book in the Books app?", answers: ["Press and Hold- select Dock","Press and Drag to Dock","Press and Hold- Drag to Dock","Settings - General - Arrange Dock"], correctAnswer: "Press and Drag to Dock", subject: .pages))
     }
-      
-      func saveQuestions() {
-          //save to user defaults
-      }
-      
-      func randomQuestion() -> Question {
-          if let question = questionBank.randomElement() {
-              questionBank.removeAll(where: {$0.id == question.id})
-              return question
-          } else {
-              return Question(title: "Error", prompt: "Error?", answers: ["1","2","3","4"], correctAnswer: "4", subject: .ipad)
-          }
-      }
-  }
+    
+    func saveQuestions() {
+        //save to user defaults
+    }
+    
+}

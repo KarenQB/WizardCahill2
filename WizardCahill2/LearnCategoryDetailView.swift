@@ -22,64 +22,28 @@ struct LearnCategoryDetailView: View {
                 .ignoresSafeArea()
                 .opacity(0.4)
             
-                        VStack{
-            
-                            Text(learn.title)
-                                .font(Font.custom("Truecat", size: 60))
-            //
-            //                Text(learn.subtitle)
-            //                    .font(Font.custom("Truecat", size: 30))
-            //
-            //
-            //                Text(learn.explore)
-            //                    .font(.title)
-            //
-            //                Text(learn.exploreURL)
-            //
-            //
-            //                Text(learn.dos)
-            //                    .font(.body)
-            //
-            //                Text(learn.extends)
-            //                    .font(.body)
-            //
-            //
-                        }
-            TabView {//app
-                LearnView()
-                    .tabItem {//needs to go to apps subtitle
-                        Label("Apps", systemImage: "apps.ipad")
-                    }
+            VStack{
                 
-                LearnView()
-                    .tabItem { //needs to go to CC subtitle
-                        Label("Control Center", systemImage: "gear")
-                    }
+                Text(learn.title)
+                    .font(Font.custom("Truecat", size: 60))
                 
-                LearnView()
-                    .tabItem { //needs to go to camera subtitle
-                        Label("Camera", systemImage: "camera")
-                    }
-                
-                LearnView()
-                    .tabItem { //needs to go to spoken text subtitle
-                        Label("Spoken Text", systemImage: "speaker.wave.2.bubble.left.fill")
-                    }
-                
-                LearnView()
-                    .tabItem {
-                        Label("Notes", systemImage: "apps.ipad")
-                    }
+                Text(learn.subtitle)
+                    .font(Font.custom("Truecat", size: 30))
                 
                 
-                LearnView() //needs to go to translate subtitle
-                    .tabItem {
-                        Label("Translate", systemImage: "globe")
-                    }
+                Text(learn.explore)
+                    .font(.title)
+                
+                Text(learn.exploreURL)
                 
                 
-                //
-                //                            }
+                //                            Text(learn.dos)
+                //                                .font(.body)
+                
+                //                            Text(learn.extends)
+                //                                .font(.body)
+                
+                
             }
         }
     }

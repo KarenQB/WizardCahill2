@@ -8,7 +8,7 @@ import SwiftUI
 
 struct StatusView: View {
     
-    @State private var progress = 6.1
+    @State private var progress = 4.1
     @State private var complete = true
     
     let columns = [
@@ -30,21 +30,31 @@ struct StatusView: View {
                   .font(Font.custom("Truecat", size: 100))
               
               Spacer()
-              
-              ZStack {
-                  Text("Status:")
+              HStack {
+                  ZStack {
+                      Text("Status:")
+                          .font(Font.custom("Truecat", size: 29))
+                      
+                      ProgressView("Status…", value: progress, total: 6)
+                          .progressViewStyle(GaugeProgressStyle())
+                          .frame(width: 200, height: 200)
+                          .contentShape(Rectangle())
+                          .padding()
+                  }
+                  Text("Once you have completed the test for each subject area, take the results to your librarian to for you final test to become a wizard like me!")
+                      .font(Font.custom("Truecat", size: 18))
+                      .multilineTextAlignment(.center)
+
                   
-                  ProgressView("Status…", value: progress, total: 6)
-                      .progressViewStyle(GaugeProgressStyle())
-                      .frame(width: 200, height: 200)
-                      .contentShape(Rectangle())
-                      .padding()
+                  Image("cahill")
+                      .resizable()
+                  
               }
- 
         LazyVGrid(columns: columns, spacing: 20) {
                   
             Image("ipadBasics")
                     .resizable()
+                    .shadow(radius: 2)
                     .frame(width: 400, height: 200)
                     .overlay(
                         Image(systemName: "lock.circle.fill")
@@ -55,6 +65,7 @@ struct StatusView: View {
 
             Image("troubleCloud")
                   .resizable()
+                  .shadow(radius: 2)
                   .frame(width: 400, height: 200)
                   .overlay(
                       Image(systemName: "lock.circle.fill")
@@ -65,6 +76,7 @@ struct StatusView: View {
              
               Image("keynoteCloud")
                   .resizable()
+                  .shadow(radius: 2)
                   .frame(width: 400, height: 200)
                   .overlay(
                       Image(systemName: "lock.circle.fill")
@@ -75,6 +87,7 @@ struct StatusView: View {
             
               Image("pagesCloud")
                   .resizable()
+                  .shadow(radius: 2)
                   .frame(width: 400, height: 200)
                   .overlay(
                       Image(systemName: "lock.circle.fill")
@@ -85,6 +98,7 @@ struct StatusView: View {
             
               Image("numbersCloud")
                   .resizable()
+                  .shadow(radius: 2)
                   .frame(width: 400, height: 200)
                   .overlay(
                       Image(systemName: "lock.circle.fill")
@@ -93,8 +107,9 @@ struct StatusView: View {
                           .shadow(radius: 4)
                     )
             
-            Image("videoProdcloud")
+            Image("videoProdCloud")
                       .resizable()
+                      .shadow(radius: 2)
                     .frame(width: 400, height: 200)
                     .overlay(
                         Image(systemName: "lock.circle.fill")
