@@ -64,10 +64,10 @@ class QuestionService: ObservableObject {
         questionBank.append(Question(title: "iPad Basics- Notes", prompt: "How can you organize Notes?", answers: ["Separate them by pages","Organize with folders","Alphabetically","In files"], correctAnswer: "Organize with folders", subject: .ipad))
         
         
-        questionBank.append(Question(title: "iPad Basics- Control Center", prompt: "T/F- The microphone is ON by default for screen recordings.", answers: ["True","False"], correctAnswer: "False", subject: .ipad))
+        questionBank.append(Question(title: "iPad Basics- Control Center", prompt: "What feature do you need to double check to add audio to screen recordings?", answers: ["Volume", "Audio", "Mircrophone", "Mute"], correctAnswer: "Mircrophone", subject: .ipad))
         
         
-        questionBank.append(Question(title: "iPad Basics- Translate", prompt: "The iPad can only translate into English, Spanish and French.", answers: ["True","False"], correctAnswer: "False", subject: .ipad))
+        questionBank.append(Question(title: "iPad Basics- Translate", prompt: "The iPad can translate into all of following languages except?", answers: ["Spanish", "French", "German", "Elvish"], correctAnswer: "Elvish", subject: .ipad))
         
         
         questionBank.append(Question(title: "iPad Basics- Languages", prompt: "What app is built in to the iPad for translating into various languages?", answers: ["Translate","Spoken Content","Settings","World Languages"], correctAnswer: "Translate", subject: .ipad))
