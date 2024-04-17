@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct WizardCahill2App: App {
+  
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(subtitles: iPadSubtitles)
+                .environmentObject(LearnService())
+
         }
     }
 }

@@ -7,12 +7,23 @@
 
 import SwiftUI
 
-struct SubtitleView: View {
+struct SubtitleView {
+    
+    let selectedTopic: Topics
+    let subtitles: [String]
+    let allTopics = Topics.allTopics
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView {
+            ForEach(subtitles, id: \.self) { subtitle in
+                Text(subtitle)
+                    .font(.title)
+                    .padding()
+                    .tag(subtitle) // Use subtitle as tag for identification
+            }
+        }
+        .tabViewStyle(PageTabViewStyle())
+        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+        .navigationBarTitle(selectedTopic.rawValue.capitalized)
     }
-}
-
-#Preview {
-    SubtitleView()
 }

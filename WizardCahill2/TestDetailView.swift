@@ -30,10 +30,17 @@ struct TestDetailView: View {
     var subject: Subject
     @State private var startQuiz: Bool = false
     
-    @State private var score: Int = 0
+    @AppStorage("tryScore") var tryScore: Double = 0.0
+    @State private var showAlert = false
+    @State private var alertTitle = ""
+    @State private var alertMessage = ""
+    @State private var numberOfQuestionsPresented = 0
+    
     
     @ObservedObject var questionService: QuestionService
-    var question: Question
+    @State public var question: Question
+    @State private var showEndTestView = false
+
     
     //  @StateObject private var status = StatusProgress(ipadPassed: false, troublePassed: false, videoProdPassed: false, pagesPassed: false, keynotePassed: false, numbersPassed: false, progress: 0)
     
@@ -49,6 +56,7 @@ struct TestDetailView: View {
                 Button {
                     questionService.fetchRandomQuestionForSubject(.ipad)
                     startQuiz = true
+                    tryScore = 0
                 } label: {
                     Text("Start Quiz")
                         .font(.largeTitle)
@@ -71,23 +79,7 @@ struct TestDetailView: View {
                                 .padding(35)
                                 .frame(width: 600)
                             
-                            Group {
-                                ForEach(question.answers.indices, id: \.self) { index in
-                                    
-                                    Button(question.answers[index]) {
-                                        evaluate(answer: question.answers[index])
-                                    }
-                                    .disabled(questionService.answered)
-                                    .buttonStyle(TestButton())
-                                    
-                                }
-                            }
-                            .background(
-                                RoundedRectangle(cornerRadius: 40)
-                                    .fill(questionService.answered ? Color.gray : Color.purple)
-                            )
                             VStack {
-                                
                                 Button(question.answers[0]){
                                     evaluate(answer: question.answers[0])
                                 }.disabled(questionService.answered)
@@ -97,35 +89,65 @@ struct TestDetailView: View {
                                     evaluate(answer: question.answers[1])
                                 }.disabled(questionService.answered)
                                     .buttonStyle(TestButton())
-
                                 
                                 Button(question.answers[2]){
                                     evaluate(answer: question.answers[2])
                                 }.disabled(questionService.answered)
                                     .buttonStyle(TestButton())
-
+                                
                                 Button(question.answers[3]){
                                     evaluate(answer: question.answers[3])
                                 }.disabled(questionService.answered)
                                     .buttonStyle(TestButton())
-
+                                
                             }
+                            .alert(isPresented: $showAlert) {
+                                Alert(
+                                    title: Text(alertTitle),
+                                    message: Text(alertMessage),
+                                    dismissButton: .default(Text("OK")) {
+                                        if numberOfQuestionsPresented < 5 {
+                                            if let newQuestion = questionService.fetchRandomQuestionForSubject(.ipad) {
+                                                // Update your current question or perform any necessary actions
+                                                question = newQuestion
+                                            }
+                                        } else {
+                                            showEndTestView = true
+                                        }
+                                    }
+                                )
+                            }
+                        }
+                            Text("Question \(tryScore, specifier: "%.f") / 5")
+                            .font(.title)
+                                .bold()
+                                .foregroundStyle(.purple)
                         }
                     }
                 }
+            .sheet(isPresented: $showEndTestView) {
+                EndTestView()
             }
         }
     }
-    
-    // Place the evaluate function outside of the body
-    func evaluate(answer: String) {
-        print("Button tapped with answer: \(answer)")
-        
-        questionService.answered = true
-        if answer == question.correctAnswer {
-            questionService.correct = true
-            score += 20
-        }
-    }
-}
-
+                        func evaluate(answer: String) {
+                                if numberOfQuestionsPresented < 5 {
+                                numberOfQuestionsPresented += 1
+                            } else {
+                                    print("\(numberOfQuestionsPresented) of 5")
+                                }
+                                        
+                                if answer == question.correctAnswer {
+                                tryScore += 1
+                                showAlert = true
+                                alertTitle = "Correct!"
+                                alertMessage = "Well done!"
+                            } else {
+                                showAlert = true
+                                alertTitle = "Incorrect!"
+                                alertMessage = "Try again."
+                            }
+                        }
+                    }
+                                    
+                                    
