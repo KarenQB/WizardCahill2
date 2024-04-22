@@ -16,9 +16,6 @@
 		DC42F89D2BD0472700CD2EF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC42F89B2BD0472700CD2EF4 /* Assets.xcassets */; };
 		DC42F89E2BD0472700CD2EF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC42F89B2BD0472700CD2EF4 /* Assets.xcassets */; };
 		DC6A32602BCDE88F0001D364 /* EndTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6A325F2BCDE88F0001D364 /* EndTestView.swift */; };
-		DC6A32632BCEC3C30001D364 /* LearnSubtitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6A32622BCEC3C30001D364 /* LearnSubtitleView.swift */; };
-		DC6A32642BCEC3C30001D364 /* LearnSubtitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6A32622BCEC3C30001D364 /* LearnSubtitleView.swift */; };
-		DC6A32652BCEC3C30001D364 /* LearnSubtitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6A32622BCEC3C30001D364 /* LearnSubtitleView.swift */; };
 		DCA8834B2BCD82CA00C72627 /* LearnDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA8834A2BCD82CA00C72627 /* LearnDetailView.swift */; };
 		DCEBA7452BBC9F68006D6808 /* WizardCahill2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEBA7442BBC9F68006D6808 /* WizardCahill2App.swift */; };
 		DCEBA74C2BBC9F6A006D6808 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCEBA74B2BBC9F6A006D6808 /* Preview Assets.xcassets */; };
@@ -72,7 +69,6 @@
 		DC42F8982BCEECE500CD2EF4 /* SubtitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleView.swift; sourceTree = "<group>"; };
 		DC42F89B2BD0472700CD2EF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC6A325F2BCDE88F0001D364 /* EndTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndTestView.swift; sourceTree = "<group>"; };
-		DC6A32622BCEC3C30001D364 /* LearnSubtitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnSubtitleView.swift; sourceTree = "<group>"; };
 		DCA8834A2BCD82CA00C72627 /* LearnDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnDetailView.swift; sourceTree = "<group>"; };
 		DCEBA7412BBC9F68006D6808 /* WizardCahill2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WizardCahill2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCEBA7442BBC9F68006D6808 /* WizardCahill2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardCahill2App.swift; sourceTree = "<group>"; };
@@ -156,7 +152,6 @@
 				DCEBA7732BBC9F83006D6808 /* LearnView.swift */,
 				DCA8834A2BCD82CA00C72627 /* LearnDetailView.swift */,
 				DC42F8982BCEECE500CD2EF4 /* SubtitleView.swift */,
-				DC6A32622BCEC3C30001D364 /* LearnSubtitleView.swift */,
 				DC0E25792BC9BA74008CE3D8 /* TestView.swift */,
 				DCEBA7752BBC9F83006D6808 /* TestDetailView.swift */,
 				DC6A325F2BCDE88F0001D364 /* EndTestView.swift */,
@@ -341,7 +336,6 @@
 				DC2FFA502BC6FFDF0067FC37 /* ContentView.swift in Sources */,
 				DCEBA77A2BBC9F83006D6808 /* StatusView.swift in Sources */,
 				DCEBA7812BBC9F83006D6808 /* LearnService.swift in Sources */,
-				DC6A32632BCEC3C30001D364 /* LearnSubtitleView.swift in Sources */,
 				DC42F8992BCEECE500CD2EF4 /* SubtitleView.swift in Sources */,
 				DCEBA77C2BBC9F83006D6808 /* TestButton.swift in Sources */,
 			);
@@ -352,7 +346,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC0E257B2BC9BA74008CE3D8 /* TestView.swift in Sources */,
-				DC6A32642BCEC3C30001D364 /* LearnSubtitleView.swift in Sources */,
 				DCEBA7562BBC9F6A006D6808 /* WizardCahill2Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,7 +357,6 @@
 				DC0E257C2BC9BA74008CE3D8 /* TestView.swift in Sources */,
 				DCEBA7602BBC9F6A006D6808 /* WizardCahill2UITests.swift in Sources */,
 				DCEBA7622BBC9F6A006D6808 /* WizardCahill2UITestsLaunchTests.swift in Sources */,
-				DC6A32652BCEC3C30001D364 /* LearnSubtitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
