@@ -17,11 +17,11 @@ struct ContentView: View {
                     .opacity(0.4)
                 
                 Group {
-                    Image("cahill")
-                        .resizable()
+                  Image("cahill1")
+                        .scaleEffect(1.5)
+                        
                 }
-                .frame(width: 1200, height: 1100)
-                .position(x: 550, y: 820)
+                .position(x: 650, y: 850)
                 
                 VStack {
                     Text("iPad Wizard")
@@ -75,6 +75,7 @@ struct ContentView: View {
             }
         }
         .navigationViewStyle(.stack)
+        .navigationBarBackButtonHidden()
     }
     
     let defaultLearn = Learn(title: "Default", subtitle: "Default", explore: "Default", exploreURL: "Default", dos: ["Default"], extends: ["Default"], topic: .ipad)

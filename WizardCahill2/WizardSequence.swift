@@ -1,18 +1,35 @@
-//
-//  WizardSequence.swift
-//  WizardCahill2
-//
-//  Created by Karen Seimears on 4/18/24.
-//
-
 import SwiftUI
 
 struct WizardSequence: View {
+    
+    @State var cahill: String
+    
+    init() {
+        cahill = "cahill1"
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Image(cahill)
+                .onAppear(perform: timerCahill)
+        }
+    }
+    
+    func timerCahill() {
+        var index = 1
+        let timer = Timer.scheduledTimer(withTimeInterval: 0.14, repeats: true) { timer in
+            cahill = "cahill\(index)"
+            index += 1
+            if index > 3 {
+                index = 1
+            }
+        }
+        RunLoop.current.add(timer, forMode: .common)
     }
 }
 
-#Preview {
-    WizardSequence()
+struct WizardSequence_Previews: PreviewProvider {
+    static var previews: some View {
+        WizardSequence()
+    }
 }

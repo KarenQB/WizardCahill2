@@ -21,19 +21,16 @@ struct StatusView: View {
                 Color.orange
                     .ignoresSafeArea()
                     .opacity(0.4)
+          Image("wizard180")
+              .resizable()
+              .scaleEffect(0.5)
+              .position(x: 800, y: 120)
                
           VStack {
-              
-              Text("Status")
-                  .foregroundStyle(Color.orange)
-                  .shadow(color: .black, radius: 2)
-                  .font(Font.custom("Truecat", size: 100))
-              
-              Spacer()
               HStack {
                   ZStack {
                       Text("Status:")
-                          .font(Font.custom("Truecat", size: 29))
+                          .font(Font.custom("Truecat", size: 30))
                       
                       ProgressView("Status…", value: progress, total: 6)
                           .progressViewStyle(GaugeProgressStyle())
@@ -41,15 +38,19 @@ struct StatusView: View {
                           .contentShape(Rectangle())
                           .padding()
                   }
-                  Text("Once you have completed the test for each subject area, take the results to your librarian to for you final test to become a wizard like me!")
-                      .font(Font.custom("Truecat", size: 18))
-                      .multilineTextAlignment(.center)
-
-                  
-                  Image("cahill")
-                      .resizable()
-                  
-              }
+                  Text("Status")
+                      .foregroundStyle(Color.orange)
+                      .shadow(color: .black, radius: 2)
+                      .font(Font.custom("Truecat", size: 70))
+                                    
+              }.padding(.trailing, 160)
+              Text("Once you have completed the test for each subject area, take the results to your librarian to for you final test to become a wizard like me!")
+                  .font(Font.custom("Truecat", size: 24))
+                  .multilineTextAlignment(.center)
+                  .padding(.trailing, 160)
+         
+        
+              
         LazyVGrid(columns: columns, spacing: 20) {
                   
             Image("ipadBasics")
@@ -60,7 +61,7 @@ struct StatusView: View {
                         Image(systemName: "lock.circle.fill")
                             .font(.system(size: 80))
                             .foregroundColor(.white)
-                            .shadow(radius: 4)
+                            .shadow(color: .black, radius: 9)
                       )
 
             Image("troubleCloud")
@@ -71,7 +72,7 @@ struct StatusView: View {
                       Image(systemName: "lock.circle.fill")
                           .font(.system(size: 80))
                           .foregroundColor(.white)
-                          .shadow(radius: 4)
+                          .shadow(color: .black, radius: 9)
                     )
              
               Image("keynoteCloud")
@@ -82,7 +83,7 @@ struct StatusView: View {
                       Image(systemName: "lock.circle.fill")
                           .font(.system(size: 80))
                           .foregroundColor(.white)
-                          .shadow(radius: 4)
+                          .shadow(color: .black, radius: 9)
                     )
             
               Image("pagesCloud")
@@ -93,7 +94,7 @@ struct StatusView: View {
                       Image(systemName: "lock.circle.fill")
                           .font(.system(size: 80))
                           .foregroundColor(.white)
-                          .shadow(radius: 4)
+                          .shadow(color: .black, radius: 9)
                     )
             
               Image("numbersCloud")
@@ -104,7 +105,7 @@ struct StatusView: View {
                       Image(systemName: "lock.circle.fill")
                           .font(.system(size: 80))
                           .foregroundColor(.white)
-                          .shadow(radius: 4)
+                          .shadow(color: .black, radius: 9)
                     )
             
             Image("videoProdCloud")
@@ -115,13 +116,13 @@ struct StatusView: View {
                         Image(systemName: "lock.circle.fill")
                             .font(.system(size: 80))
                             .foregroundColor(.white)
-                            .shadow(radius: 4)
+                            .shadow(color: .black, radius: 9)
                       )
               }
               Spacer()
               Spacer()
           }
-          .padding(.horizontal)
+          .padding(.horizontal, 20)
           }
         
     }

@@ -4,12 +4,14 @@ struct LearnDetailView: View {
     var topic: Topics
     var subtitles: [String]
     let allTopics = Topics.allTopics
-    var learn: [Learn]
+    
     
     @StateObject private var learnService = LearnService()
-
+    
     @State private var selectedSubtitleIndex = 0
     @State private var filteredLearn: [Learn] = []
+    
+    @State private var currentLearn: Learn = Learn(title: "Text", subtitle: "Text", explore: "test", exploreURL: "test", dos: ["Test"], extends: ["Test"], topic: .ipad)
     
     var selectedSubtitle: String {
         return subtitles[selectedSubtitleIndex]
@@ -18,25 +20,44 @@ struct LearnDetailView: View {
     var body: some View {
         ZStack {
             BackgroundImage()
-            Color.yellow
-                .ignoresSafeArea()
-                .opacity(0.4)
+           
+            Group {
+                if currentLearn.topic == .ipad {
+                    Color.indigo
+                }
+                if currentLearn.topic == .troubleshooting {
+                    Color.pink
+                }
+                if currentLearn.topic == .keynote {
+                    Color.blue
+                }
+                if currentLearn.topic == .pages {
+                    Color.orange
+                }
+                if currentLearn.topic == .numbers {
+                    Color.green
+                }
+                if currentLearn.topic == .videoProd {
+                    Color.yellow
+                }
+            }.ignoresSafeArea()
+            .opacity(0.4)
             
             VStack {
                 VStack {
                     Text(selectedSubtitle)
                         .font(Font.custom("Truecat", size: 80))
-                    
-                    ForEach(filteredLearn, id: \.id) { learn in
+
+                    VStack {
                         VStack(alignment: .leading) {
-                            Text(learn.title)
+                            Text(currentLearn.title)
                                 .font(Font.custom("Truecat", size: 40))
                                 .padding()
                             HStack {
-                                Text(learn.explore)
+                                Text(currentLearn.explore)
                                 
                                 Button(action: {
-                                    if let url = URL(string: learn.exploreURL) {
+                                    if let url = URL(string: currentLearn.exploreURL) {
                                         UIApplication.shared.open(url)
                                     }
                                 }) {
@@ -53,7 +74,7 @@ struct LearnDetailView: View {
                                 Text("Do This:")
                                     .font(Font.custom("Truecat", size: 40))
                                     .padding()
-                                ForEach(Array(learn.dos.enumerated()), id: \.1) { index, dos in
+                                ForEach(Array(currentLearn.dos.enumerated()), id: \.1) { index, dos in
                                     Text("\(index + 1). \(dos)")
                                 }
                                 .font(.title)
@@ -65,17 +86,18 @@ struct LearnDetailView: View {
                             
                             Spacer()
                             
-                            Image("cahill")
+                            Image("cahill2")
                                 .resizable()
-                                .scaledToFill()
-                                .frame(width: 400)
+                                .scaleEffect(1.0)
+                                .frame(width: 600)
+                                .position(x: 350, y: 300)
                         }
                         VStack {
                             VStack(alignment: .leading) {
                                 Text("Extend it:")
                                     .font(Font.custom("Truecat", size: 40))
                                     .padding()
-                                ForEach(Array(learn.extends.enumerated()), id: \.1) { index, extends in
+                                ForEach(Array(currentLearn.extends.enumerated()), id: \.1) { index, extends in
                                     Text("🤔 \(extends)")
                                 }
                                 .font(.title)
@@ -86,6 +108,7 @@ struct LearnDetailView: View {
                             .padding()
                         }
                     }
+                    
                 }
                 
                 Spacer()
@@ -98,13 +121,32 @@ struct LearnDetailView: View {
                     }
                     .pickerStyle(SegmentedPickerStyle())
                     .padding(50)
+                    .onChange(of: selectedSubtitleIndex) {
+                        updateFilteredLearn()
+                        
+                    }
                 }
             }
+            .onAppear() {
+                
+                updateFilteredLearn()
+                
+                
+            }
+           
         }
         
     }
     func updateFilteredLearn() {
-            filteredLearn = learnService.learnBank.filter { $0.subtitle == selectedSubtitle }
-        print(SubtitleView(selectedTopic: .ipad, subtitles: []))
+        filteredLearn.removeAll()
+        filteredLearn = learnService.learnBank.filter { $0.subtitle == selectedSubtitle }
+        if filteredLearn.count > 0 {
+            currentLearn = filteredLearn.first!
         }
+    }
+}
+
+#Preview {
+    LearnDetailView(topic: .ipad, subtitles: pagesSubtitles)
+    
 }

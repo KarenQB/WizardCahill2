@@ -1,17 +1,12 @@
-//
-//  EndTestView.swift
-//  WizardCahill2
-//
-//  Created by Karen Seimears on 4/15/24.
-//
-
 import SwiftUI
 
 struct EndTestView: View {
     
     @AppStorage("tryScore") var tryScore: Double = 0.0
+    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
+        
         ZStack {
             BackgroundImage()
             Color.indigo
@@ -19,19 +14,27 @@ struct EndTestView: View {
                 .opacity(0.4)
             
             Group {
-                Image("cahill")
-                    .resizable()
+                if tryScore >= 4 {
+                    Image("success")
+                        .resizable()
+                } else {
+                    Image("tryAgain")
+                        .resizable()
+                }
             }
             .frame(width: 1200, height: 1100)
             .position(x: 550, y: 820)
             
-            
             VStack {
+                Spacer()
                 Text("RESULTS:")
                     .font(Font.custom("Truecat", size: 100))
                     .foregroundStyle(Color.indigo)
-                    .shadow(color: .black, radius: 2)
+                    .shadow(color: .black, radius: 1)
                 
+                Text("4 points needed for \n an apprentice badge.")
+                    .multilineTextAlignment(.center)
+                    .font(.title)
                 
                 ZStack {
                     ProgressView("Status…", value: tryScore, total: 5)
@@ -43,11 +46,22 @@ struct EndTestView: View {
                         .bold()
                         .font(.title)
                 }
+                Spacer()
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("Return to Test")
+                        .font(.title2)
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.purple)
+                        .cornerRadius(10)
+                }
+                .padding()
             }
         }
     }
 }
-
 #Preview {
-    EndTestView()
+    EndTestView(tryScore: 0.0)
 }

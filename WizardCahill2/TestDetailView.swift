@@ -42,9 +42,6 @@ struct TestDetailView: View {
     @State private var showEndTestView = false
 
     
-    //  @StateObject private var status = StatusProgress(ipadPassed: false, troublePassed: false, videoProdPassed: false, pagesPassed: false, keynotePassed: false, numbersPassed: false, progress: 0)
-    
-    
     var body: some View {
         ZStack {
             BackgroundImage()
@@ -53,23 +50,24 @@ struct TestDetailView: View {
                 .opacity(0.2)
             
             VStack {
-                Button {
-                    questionService.fetchRandomQuestionForSubject(.ipad)
-                    startQuiz = true
-                    tryScore = 0
-                } label: {
-                    Text("Start Quiz")
-                        .font(.largeTitle)
-                }.padding()
-                    .foregroundColor(.white)
-                    .background(
-                        RoundedRectangle(
-                            cornerRadius: 10,
-                            style: .continuous
-                        ))
-                    .foregroundColor(.purple)
-                    .padding(50)
-                
+                if startQuiz == false {
+                    Button {
+                        questionService.fetchRandomQuestionForSubject(.ipad)
+                        startQuiz = true
+                        tryScore = 0
+                    } label: {
+                        Text("Start Quiz")
+                            .font(.largeTitle)
+                    }.padding()
+                        .foregroundColor(.white)
+                        .background(
+                            RoundedRectangle(
+                                cornerRadius: 10,
+                                style: .continuous
+                            ))
+                        .foregroundColor(.purple)
+                        .padding(50)
+                }
                 
                 if startQuiz {
                     VStack{
@@ -118,17 +116,85 @@ struct TestDetailView: View {
                                 )
                             }
                         }
-                            Text("Question \(tryScore, specifier: "%.f") / 5")
+                        Text("Question \(numberOfQuestionsPresented) / 5")
                             .font(.title)
-                                .bold()
-                                .foregroundStyle(.purple)
+                            .bold()
+                            .foregroundStyle(.purple)
+                        
+                        HStack {
+                            if numberOfQuestionsPresented == 5 && tryScore < 4 {
+                                NavigationLink(destination: TestView())
+                                {
+                                    Text("Try Again")
+                                        .font(.largeTitle)
+                                }
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(
+                                    RoundedRectangle(
+                                        cornerRadius: 30,
+                                        style: .continuous
+                                    ))
+                                .foregroundColor(.blue)
+                                .padding(50)
+                                
+                                NavigationLink(destination: ContentView(subtitles: pagesSubtitles))
+                                {
+                                    Text("Main Menu")
+                                        .font(.largeTitle)
+                                }
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(
+                                    RoundedRectangle(
+                                        cornerRadius: 30,
+                                        style: .continuous
+                                    ))
+                                .foregroundColor(.blue)
+                                .padding(50)
+                            }
+                            
+                            if numberOfQuestionsPresented == 5 && tryScore >= 4 {
+                                NavigationLink(destination: StatusView())
+                                {
+                                    Text("Check Status")
+                                        .font(.title)
+                                }
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(
+                                    RoundedRectangle(
+                                        cornerRadius: 30,
+                                        style: .continuous
+                                    ))
+                                .foregroundColor(.blue)
+                                .padding(50)
+                                
+                                
+                                NavigationLink(destination: ContentView(subtitles: pagesSubtitles))
+                                {
+                                    Text("Main Menu")
+                                        .font(.title)
+                                }
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(
+                                    RoundedRectangle(
+                                        cornerRadius: 30,
+                                        style: .continuous
+                                    ))
+                                .foregroundColor(.blue)
+                                .padding(50)
+                            }
                         }
                     }
                 }
+            }
             .sheet(isPresented: $showEndTestView) {
                 EndTestView()
             }
         }
+        .navigationBarBackButtonHidden()
     }
                         func evaluate(answer: String) {
                                 if numberOfQuestionsPresented < 5 {

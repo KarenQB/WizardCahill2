@@ -82,15 +82,133 @@ class QuestionService: ObservableObject {
         
         //video production
         
-        questionBank.append(Question(title: "Video Production- Clips", prompt: "What is Clips", answers: ["Press and Hold- select Dock","Press and Drag to Dock","Press and Hold- Drag to Dock","Settings - General - Arrange Dock"], correctAnswer: "Press and Drag to Dock", subject: .videoProd))
+        questionBank.append(Question(title: "Video Production- Clips", prompt: "How do I record video live in Clips?", answers: ["Use Camera app and move into Clips","Set timer to record when ready","Press and Hold Camera Icon","Press and Hold Red Button"], correctAnswer: "Press and Hold Red Button", subject: .videoProd))
         
-        questionBank.append(Question(title: "Troubleshooting- Wifi", prompt: "What does the wifi symbol look like?", answers: ["Press and Hold- select Dock","Press and Drag to Dock","Press and Hold- Drag to Dock","Settings - General - Arrange Dock"], correctAnswer: "Press and Drag to Dock", subject: .troubleshooting))
+        questionBank.append(Question(title: "Video Production", prompt: "Which app allows me to use green screen footage to create special effects?", answers: ["Clips","iMovie","Photos","Camera"], correctAnswer: "iMovie", subject: .videoProd))
         
-        questionBank.append(Question(title: "Keynote- Formatting", prompt: "What is the feature that draws a line around an object?", answers: ["Press and Hold- select Dock","Press and Drag to Dock","Press and Hold- Drag to Dock","Settings - General - Arrange Dock"], correctAnswer: "Press and Drag to Dock", subject: .keynote))
+        questionBank.append(Question(title: "Video Production", prompt: "Which app is the simplest to crop the size of my video?", answers: ["Clips","iMovie","Photos","Camera"], correctAnswer: "Photos", subject: .videoProd))
         
-        questionBank.append(Question(title: "Numbers- Charts", prompt: "What chart shows data in a circle with different percentages?", answers: ["Press and Hold- select Dock","Press and Drag to Dock","Press and Hold- Drag to Dock","Settings - General - Arrange Dock"], correctAnswer: "Press and Drag to Dock", subject: .numbers))
+        questionBank.append(Question(title: "Video Production- Live Titles", prompt: "Once you record live titles, what is the last icon you press to edit the text on the screen?", answers: ["Star","Live Titles","Edit Text","Text Styles"], correctAnswer: "Edit", subject: .videoProd))
         
-        questionBank.append(Question(title: "Pages- Exporting", prompt: "What format makes a Pages file open as a multitouch book in the Books app?", answers: ["Press and Hold- select Dock","Press and Drag to Dock","Press and Hold- Drag to Dock","Settings - General - Arrange Dock"], correctAnswer: "Press and Drag to Dock", subject: .pages))
+        questionBank.append(Question(title: "Video Production- Green Screen", prompt: "How do you get the option to add green screen footage as a different layer?", answers: ["Tap Add Green Screen Footage","Tap 3 Dots","Tap FX tab","Go to Overlays"], correctAnswer: "Tap 3 Dots", subject: .videoProd))
+        
+        questionBank.append(Question(title: "Video Production- Clips", prompt: "How do I record video live in Clips?", answers: ["Use Camera app and move into Clips","Set timer to record when ready","Press and Hold Camera Icon","Press and Hold Red Button"], correctAnswer: "Press and Hold Red Button", subject: .videoProd))
+        
+        questionBank.append(Question(title: "Video Production- Clips", prompt: "How do I record video live in Clips?", answers: ["Use Camera app and move into Clips","Set timer to record when ready","Press and Hold Camera Icon","Press and Hold Red Button"], correctAnswer: "Press and Hold Red Button", subject: .videoProd))
+        
+        questionBank.append(Question(title: "Video Production- Clips", prompt: "How do I record video live in Clips?", answers: ["Use Camera app and move into Clips","Set timer to record when ready","Press and Hold Camera Icon","Press and Hold Red Button"], correctAnswer: "Press and Hold Red Button", subject: .videoProd))
+        
+        questionBank.append(Question(title: "Video Production- Clips", prompt: "How do I record video live in Clips?", answers: ["Use Camera app and move into Clips","Set timer to record when ready","Press and Hold Camera Icon","Press and Hold Red Button"], correctAnswer: "Press and Hold Red Button", subject: .videoProd))
+        
+        questionBank.append(Question(title: "Video Production- Clips", prompt: "How do I record video live in Clips?", answers: ["Use Camera app and move into Clips","Set timer to record when ready","Press and Hold Camera Icon","Press and Hold Red Button"], correctAnswer: "Press and Hold Red Button", subject: .videoProd))
+        
+        questionBank.append(Question(title: "Video Production- Clips", prompt: "How do I record video live in Clips?", answers: ["Use Camera app and move into Clips","Set timer to record when ready","Press and Hold Camera Icon","Press and Hold Red Button"], correctAnswer: "Press and Hold Red Button", subject: .videoProd))
+        
+        
+        // troubleshooting
+        
+        questionBank.append(Question(title: "Troubleshooting- Wifi", prompt: "What mode will turn off wifi automatically?", answers: ["Bluetooth Mode","Screen Mirror Mode","Airplane Mode","Voice Control Mode"], correctAnswer: "Airplane Mode", subject: .troubleshooting))
+        
+        questionBank.append(Question(title: "Troubleshooting- Wifi", prompt: "What mode will turn off wifi automatically?", answers: ["Bluetooth Mode","Screen Mirror Mode","Airplane Mode","Voice Control Mode"], correctAnswer: "Airplane Mode", subject: .troubleshooting))
+        
+        questionBank.append(Question(title: "Troubleshooting- Wifi", prompt: "What mode will turn off wifi automatically?", answers: ["Bluetooth Mode","Screen Mirror Mode","Airplane Mode","Voice Control Mode"], correctAnswer: "Airplane Mode", subject: .troubleshooting))
+        
+        questionBank.append(Question(title: "Troubleshooting- Wifi", prompt: "What mode will turn off wifi automatically?", answers: ["Bluetooth Mode","Screen Mirror Mode","Airplane Mode","Voice Control Mode"], correctAnswer: "Airplane Mode", subject: .troubleshooting))
+        
+        questionBank.append(Question(title: "Troubleshooting- Wifi", prompt: "What mode will turn off wifi automatically?", answers: ["Bluetooth Mode","Screen Mirror Mode","Airplane Mode","Voice Control Mode"], correctAnswer: "Airplane Mode", subject: .troubleshooting))
+        
+        questionBank.append(Question(title: "Troubleshooting- Wifi", prompt: "What mode will turn off wifi automatically?", answers: ["Bluetooth Mode","Screen Mirror Mode","Airplane Mode","Voice Control Mode"], correctAnswer: "Airplane Mode", subject: .troubleshooting))
+        
+        questionBank.append(Question(title: "Troubleshooting- Wifi", prompt: "What mode will turn off wifi automatically?", answers: ["Bluetooth Mode","Screen Mirror Mode","Airplane Mode","Voice Control Mode"], correctAnswer: "Airplane Mode", subject: .troubleshooting))
+        
+        questionBank.append(Question(title: "Troubleshooting- Wifi", prompt: "What mode will turn off wifi automatically?", answers: ["Bluetooth Mode","Screen Mirror Mode","Airplane Mode","Voice Control Mode"], correctAnswer: "Airplane Mode", subject: .troubleshooting))
+        
+        questionBank.append(Question(title: "Troubleshooting- Wifi", prompt: "What mode will turn off wifi automatically?", answers: ["Bluetooth Mode","Screen Mirror Mode","Airplane Mode","Voice Control Mode"], correctAnswer: "Airplane Mode", subject: .troubleshooting))
+        
+        questionBank.append(Question(title: "Troubleshooting- Wifi", prompt: "What mode will turn off wifi automatically?", answers: ["Bluetooth Mode","Screen Mirror Mode","Airplane Mode","Voice Control Mode"], correctAnswer: "Airplane Mode", subject: .troubleshooting))
+        
+        questionBank.append(Question(title: "Troubleshooting- Wifi", prompt: "What mode will turn off wifi automatically?", answers: ["Bluetooth Mode","Screen Mirror Mode","Airplane Mode","Voice Control Mode"], correctAnswer: "Airplane Mode", subject: .troubleshooting))
+        
+        questionBank.append(Question(title: "Troubleshooting- Wifi", prompt: "What mode will turn off wifi automatically?", answers: ["Bluetooth Mode","Screen Mirror Mode","Airplane Mode","Voice Control Mode"], correctAnswer: "Airplane Mode", subject: .troubleshooting))
+        
+        
+        //keynote
+        
+        questionBank.append(Question(title: "Keynote- Formatting", prompt: "What is the feature that draws a line around an object?", answers: ["Reflection","Border","Chart","Outline"], correctAnswer: "Border", subject: .keynote))
+        
+        questionBank.append(Question(title: "Keynote- Formatting", prompt: "What is the feature that draws a line around an object?", answers: ["Reflection","Border","Chart","Outline"], correctAnswer: "Border", subject: .keynote))
+
+        questionBank.append(Question(title: "Keynote- Formatting", prompt: "What is the feature that draws a line around an object?", answers: ["Reflection","Border","Chart","Outline"], correctAnswer: "Border", subject: .keynote))
+
+        questionBank.append(Question(title: "Keynote- Formatting", prompt: "What is the feature that draws a line around an object?", answers: ["Reflection","Border","Chart","Outline"], correctAnswer: "Border", subject: .keynote))
+
+        questionBank.append(Question(title: "Keynote- Formatting", prompt: "What is the feature that draws a line around an object?", answers: ["Reflection","Border","Chart","Outline"], correctAnswer: "Border", subject: .keynote))
+
+        questionBank.append(Question(title: "Keynote- Formatting", prompt: "What is the feature that draws a line around an object?", answers: ["Reflection","Border","Chart","Outline"], correctAnswer: "Border", subject: .keynote))
+
+        questionBank.append(Question(title: "Keynote- Formatting", prompt: "What is the feature that draws a line around an object?", answers: ["Reflection","Border","Chart","Outline"], correctAnswer: "Border", subject: .keynote))
+
+        questionBank.append(Question(title: "Keynote- Formatting", prompt: "What is the feature that draws a line around an object?", answers: ["Reflection","Border","Chart","Outline"], correctAnswer: "Border", subject: .keynote))
+
+        questionBank.append(Question(title: "Keynote- Formatting", prompt: "What is the feature that draws a line around an object?", answers: ["Reflection","Border","Chart","Outline"], correctAnswer: "Border", subject: .keynote))
+
+        questionBank.append(Question(title: "Keynote- Formatting", prompt: "What is the feature that draws a line around an object?", answers: ["Reflection","Border","Chart","Outline"], correctAnswer: "Border", subject: .keynote))
+
+        questionBank.append(Question(title: "Keynote- Formatting", prompt: "What is the feature that draws a line around an object?", answers: ["Reflection","Border","Chart","Outline"], correctAnswer: "Border", subject: .keynote))
+
+        questionBank.append(Question(title: "Keynote- Formatting", prompt: "What is the feature that draws a line around an object?", answers: ["Reflection","Border","Chart","Outline"], correctAnswer: "Border", subject: .keynote))
+
+        
+        //numbers
+        
+        questionBank.append(Question(title: "Numbers- Charts", prompt: "What chart shows data in a circle with different percentages?", answers: ["Bar Chart","Pie Chart","Bubble Chart","Scatterplot"], correctAnswer: "Pie Chart", subject: .numbers))
+        
+        questionBank.append(Question(title: "Numbers- Charts", prompt: "What chart shows data in a circle with different percentages?", answers: ["Bar Chart","Pie Chart","Bubble Chart","Scatterplot"], correctAnswer: "Pie Chart", subject: .numbers))
+
+        questionBank.append(Question(title: "Numbers- Charts", prompt: "What chart shows data in a circle with different percentages?", answers: ["Bar Chart","Pie Chart","Bubble Chart","Scatterplot"], correctAnswer: "Pie Chart", subject: .numbers))
+
+        questionBank.append(Question(title: "Numbers- Charts", prompt: "What chart shows data in a circle with different percentages?", answers: ["Bar Chart","Pie Chart","Bubble Chart","Scatterplot"], correctAnswer: "Pie Chart", subject: .numbers))
+        questionBank.append(Question(title: "Numbers- Charts", prompt: "What chart shows data in a circle with different percentages?", answers: ["Bar Chart","Pie Chart","Bubble Chart","Scatterplot"], correctAnswer: "Pie Chart", subject: .numbers))
+
+        questionBank.append(Question(title: "Numbers- Charts", prompt: "What chart shows data in a circle with different percentages?", answers: ["Bar Chart","Pie Chart","Bubble Chart","Scatterplot"], correctAnswer: "Pie Chart", subject: .numbers))
+
+        questionBank.append(Question(title: "Numbers- Charts", prompt: "What chart shows data in a circle with different percentages?", answers: ["Bar Chart","Pie Chart","Bubble Chart","Scatterplot"], correctAnswer: "Pie Chart", subject: .numbers))
+
+        questionBank.append(Question(title: "Numbers- Charts", prompt: "What chart shows data in a circle with different percentages?", answers: ["Bar Chart","Pie Chart","Bubble Chart","Scatterplot"], correctAnswer: "Pie Chart", subject: .numbers))
+
+        questionBank.append(Question(title: "Numbers- Charts", prompt: "What chart shows data in a circle with different percentages?", answers: ["Bar Chart","Pie Chart","Bubble Chart","Scatterplot"], correctAnswer: "Pie Chart", subject: .numbers))
+
+        questionBank.append(Question(title: "Numbers- Charts", prompt: "What chart shows data in a circle with different percentages?", answers: ["Bar Chart","Pie Chart","Bubble Chart","Scatterplot"], correctAnswer: "Pie Chart", subject: .numbers))
+
+        questionBank.append(Question(title: "Numbers- Charts", prompt: "What chart shows data in a circle with different percentages?", answers: ["Bar Chart","Pie Chart","Bubble Chart","Scatterplot"], correctAnswer: "Pie Chart", subject: .numbers))
+
+        
+        
+        //pages
+        
+        questionBank.append(Question(title: "Pages- Formatting", prompt: "When trying to change the color of a shape, what should I do first?", answers: ["Go to Add Menu","Go to Shapes Menu","Select the shape","Go to the Format Brush"], correctAnswer: "Select the shape", subject: .pages))
+        
+        questionBank.append(Question(title: "Pages- Formatting", prompt: "When trying to change the color of a shape, what should I do first?", answers: ["Go to Add Menu","Go to Shapes Menu","Select the shape","Go to the Format Brush"], correctAnswer: "Select the shape", subject: .pages))
+
+        questionBank.append(Question(title: "Pages- Formatting", prompt: "When trying to change the color of a shape, what should I do first?", answers: ["Go to Add Menu","Go to Shapes Menu","Select the shape","Go to the Format Brush"], correctAnswer: "Select the shape", subject: .pages))
+
+        questionBank.append(Question(title: "Pages- Formatting", prompt: "When trying to change the color of a shape, what should I do first?", answers: ["Go to Add Menu","Go to Shapes Menu","Select the shape","Go to the Format Brush"], correctAnswer: "Select the shape", subject: .pages))
+
+        questionBank.append(Question(title: "Pages- Formatting", prompt: "When trying to change the color of a shape, what should I do first?", answers: ["Go to Add Menu","Go to Shapes Menu","Select the shape","Go to the Format Brush"], correctAnswer: "Select the shape", subject: .pages))
+
+        questionBank.append(Question(title: "Pages- Formatting", prompt: "When trying to change the color of a shape, what should I do first?", answers: ["Go to Add Menu","Go to Shapes Menu","Select the shape","Go to the Format Brush"], correctAnswer: "Select the shape", subject: .pages))
+
+        questionBank.append(Question(title: "Pages- Formatting", prompt: "When trying to change the color of a shape, what should I do first?", answers: ["Go to Add Menu","Go to Shapes Menu","Select the shape","Go to the Format Brush"], correctAnswer: "Select the shape", subject: .pages))
+
+        questionBank.append(Question(title: "Pages- Formatting", prompt: "When trying to change the color of a shape, what should I do first?", answers: ["Go to Add Menu","Go to Shapes Menu","Select the shape","Go to the Format Brush"], correctAnswer: "Select the shape", subject: .pages))
+
+        questionBank.append(Question(title: "Pages- Formatting", prompt: "When trying to change the color of a shape, what should I do first?", answers: ["Go to Add Menu","Go to Shapes Menu","Select the shape","Go to the Format Brush"], correctAnswer: "Select the shape", subject: .pages))
+
+        questionBank.append(Question(title: "Pages- Formatting", prompt: "When trying to change the color of a shape, what should I do first?", answers: ["Go to Add Menu","Go to Shapes Menu","Select the shape","Go to the Format Brush"], correctAnswer: "Select the shape", subject: .pages))
+
+        questionBank.append(Question(title: "Pages- Formatting", prompt: "When trying to change the color of a shape, what should I do first?", answers: ["Go to Add Menu","Go to Shapes Menu","Select the shape","Go to the Format Brush"], correctAnswer: "Select the shape", subject: .pages))
+
+        
     }
     
     func saveQuestions() {

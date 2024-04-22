@@ -1,6 +1,5 @@
 //
-//  LearnView.swift
-//  WizardCahill
+//  TIM'S VERSION
 //
 //  Created by Karen Seimears on 3/29/24.
 //
@@ -98,7 +97,7 @@ struct LearnView: View {
 
     
     let topicSubtitles: [Topics: [String]] = [
-        .ipad: ["Apps", "Wifi", "Control Center", "Spoken Content", "Camera", "Notes", "Translate"],
+        .ipad: ["Apps", "Control Center", "Spoken Content", "Camera", "Notes", "Translate"],
         .troubleshooting: ["Basics", "iCloud", "Wifi", "Self-Service", "Updates", "Drive"],
         .keynote: ["Keynote Basics", "Slides", "Movies", "Audio", "GIFs", "Collaboration"],
         .pages: [ "Pages Basics", "Documents", "Pages Media", "eBooks", "Formatting", "Collaborating"],
@@ -131,7 +130,7 @@ struct LearnView: View {
                 LazyVGrid(columns: columns, spacing: 20) {
                     
                     
-                    NavigationLink(destination: LearnDetailView(topic: topic, subtitles: subtitles, learn: learnService.learnBank)) {
+                    NavigationLink(destination: LearnDetailView(topic: topic, subtitles: topicSubtitles[.ipad]!)) {
                         Image("ipadBasics")
                             .resizable()
                             .shadow(color: .black, radius: 2)
@@ -139,7 +138,7 @@ struct LearnView: View {
                             .foregroundColor(.green)
                     }
                     
-                    NavigationLink(destination: LearnDetailView(topic: topic, subtitles: subtitles, learn: learnService.learnBank)) {
+                    NavigationLink(destination: LearnDetailView(topic: topic, subtitles: topicSubtitles[.troubleshooting]!)) {
                         Image("troubleCloud")
                             .resizable()
                             .shadow(color: .black, radius: 2)
@@ -147,7 +146,7 @@ struct LearnView: View {
                             .foregroundColor(.green)
                     }
                     
-                    NavigationLink(destination: LearnDetailView(topic: topic, subtitles: subtitles, learn: learnService.learnBank)) {
+                    NavigationLink(destination: LearnDetailView(topic: topic, subtitles: topicSubtitles[.pages]!)) {
                         Image("pagesCloud")
                             .resizable()
                             .shadow(color: .black, radius: 2)
@@ -155,7 +154,7 @@ struct LearnView: View {
                             .foregroundColor(.green)
                     }
                     
-                    NavigationLink(destination: LearnDetailView(topic: topic, subtitles: subtitles, learn: learnService.learnBank)) {
+                    NavigationLink(destination: LearnDetailView(topic: topic, subtitles: topicSubtitles[.numbers]!)) {
                         Image("numbersCloud")
                             .resizable()
                             .shadow(color: .black, radius: 2)
@@ -163,7 +162,7 @@ struct LearnView: View {
                             .foregroundColor(.green)
                     }
                     
-                    NavigationLink(destination: LearnDetailView(topic: topic, subtitles: subtitles, learn: learnService.learnBank)) {
+                    NavigationLink(destination: LearnDetailView(topic: topic, subtitles: topicSubtitles[.keynote]!)) {
                         Image("keynoteCloud")
                             .resizable()
                             .shadow(color: .black, radius: 2)
@@ -171,7 +170,7 @@ struct LearnView: View {
                             .foregroundColor(.green)
                     }
                     
-                    NavigationLink(destination: LearnDetailView(topic: topic, subtitles: subtitles, learn: learnService.learnBank)) {
+                    NavigationLink(destination: LearnDetailView(topic: topic, subtitles: topicSubtitles[.videoProd]!)){
                         Image("videoProdCloud")
                             .resizable()
                             .shadow(color: .black, radius: 2)
@@ -196,3 +195,6 @@ struct LearnView: View {
         }
     }
 }
+#Preview {
+    LearnView(topic: .ipad, subtitles: pagesSubtitles, learnService: LearnService())
+    }
