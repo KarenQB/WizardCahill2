@@ -50,7 +50,7 @@ struct ContentView: View {
                     }
                     
                     VStack {
-                        NavigationLink(destination: StatusView()) {
+                        NavigationLink(destination: StatusView(subject: .ipad)) {
                             VStack {
                                 Image("statusCloud")
                                     .resizable()

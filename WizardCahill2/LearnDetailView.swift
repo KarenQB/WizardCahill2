@@ -1,3 +1,4 @@
+import AVKit
 import SwiftUI
 
 struct LearnDetailView: View {
@@ -20,7 +21,7 @@ struct LearnDetailView: View {
     var body: some View {
         ZStack {
             BackgroundImage()
-           
+            
             Group {
                 if currentLearn.topic == .ipad {
                     Color.indigo
@@ -41,13 +42,15 @@ struct LearnDetailView: View {
                     Color.yellow
                 }
             }.ignoresSafeArea()
-            .opacity(0.4)
+                .opacity(0.4)
             
             VStack {
                 VStack {
                     Text(selectedSubtitle)
                         .font(Font.custom("Truecat", size: 80))
-
+                    
+                    Text("This should be the video name -\(currentLearn.topic)-\(selectedSubtitle)-")
+                    
                     VStack {
                         VStack(alignment: .leading) {
                             Text(currentLearn.title)
@@ -76,21 +79,20 @@ struct LearnDetailView: View {
                                     .padding()
                                 ForEach(Array(currentLearn.dos.enumerated()), id: \.1) { index, dos in
                                     Text("\(index + 1). \(dos)")
+                                        .lineLimit(nil)
                                 }
                                 .font(.title)
                                 .padding(.bottom, 5)
                             }
-                            .padding()
                             .cornerRadius(8)
                             .padding()
                             
                             Spacer()
                             
-                            Image("cahill2")
-                                .resizable()
-                                .scaleEffect(1.0)
-                                .frame(width: 600)
-                                .position(x: 350, y: 300)
+                            VideoView(videoName: "ipad-apps")
+                                .scaleEffect(0.6)               .frame(width: 600)
+                                .position(x: 200, y: 300)
+                            
                         }
                         VStack {
                             VStack(alignment: .leading) {
@@ -133,7 +135,7 @@ struct LearnDetailView: View {
                 
                 
             }
-           
+            
         }
         
     }
@@ -145,8 +147,51 @@ struct LearnDetailView: View {
         }
     }
 }
-
-#Preview {
-    LearnDetailView(topic: .ipad, subtitles: pagesSubtitles)
     
+#Preview {
+    LearnDetailView(topic: .ipad, subtitles: iPadSubtitles)
 }
+
+struct VideoView: View {
+    
+    let videoName: String
+       let avPlayer: AVPlayer
+       
+       @State private var isPlaying = true
+       
+       init(videoName: String) {
+           self.videoName = videoName
+           guard let videoURL = Bundle.main.url(forResource: videoName, withExtension: "mov") else {
+               fatalError("Couldn't find video file: \(videoName)")
+           }
+           self.avPlayer = AVPlayer(url: videoURL)
+           self.avPlayer.playImmediately(atRate: 3.0)
+
+       }
+       
+       var body: some View {
+           VStack {
+               VideoPlayer(player: avPlayer)
+                   .onAppear() {
+                       if isPlaying {
+                           avPlayer.play()
+                       }
+                   }
+                   .onDisappear() {
+                       avPlayer.pause()
+                   }
+               
+               Button(action: {
+                   avPlayer.seek(to: .zero)
+                   avPlayer.play()
+                   isPlaying = true
+               }) {
+                   HStack {
+                       Image(systemName: "autostartstop")
+                       Text("Restart Video")
+                   }
+               }
+               .padding()
+           }
+       }
+   }

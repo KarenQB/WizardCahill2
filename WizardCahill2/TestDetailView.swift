@@ -16,204 +16,254 @@ struct Question {
     var subject: Subject
 }
 
-enum Subject {
+enum Subject: String, CaseIterable {
     case ipad
     case troubleshooting
     case pages
     case keynote
     case numbers
     case videoProd
+    case Learn
+    case Test
+    case Status
+    
+    var color: Color {
+        switch self {
+        case .ipad: return Color.purple
+        case .troubleshooting: return Color.pink
+        case .keynote: return Color.blue
+        case .pages: return Color.orange
+        case .numbers: return Color.green
+        case .videoProd: return Color.yellow
+        case .Learn: return Color.green
+        case .Status: return Color.orange
+        case .Test: return Color.mint
+        }
+    }
+    
+    
 }
+
+
 
 struct TestDetailView: View {
     
-    var subject: Subject
+    @StateObject private var questionService = QuestionService()
+    @State private var filteredQuestion: Question?
     @State private var startQuiz: Bool = false
-    
-    @AppStorage("tryScore") var tryScore: Double = 0.0
     @State private var showAlert = false
     @State private var alertTitle = ""
     @State private var alertMessage = ""
     @State private var numberOfQuestionsPresented = 0
     
-    
-    @ObservedObject var questionService: QuestionService
-    @State public var question: Question
     @State private var showEndTestView = false
-
+    @State private var endTest = false
+    
+    @AppStorage("tryScore") var tryScore: Double = 0.0
+    
+    var subject: Subject
+    
+    @EnvironmentObject var subjectStatusManager: SubjectStatusManager
     
     var body: some View {
         ZStack {
             BackgroundImage()
-            Color.purple
-                .ignoresSafeArea()
+            subject.color
                 .opacity(0.2)
+                .ignoresSafeArea()
             
             VStack {
-                if startQuiz == false {
-                    Button {
-                        questionService.fetchRandomQuestionForSubject(.ipad)
+                if !startQuiz {
+                    Button(action: {
                         startQuiz = true
+                        fetchRandomQuestionForSubject()
                         tryScore = 0
-                    } label: {
+                    }) {
                         Text("Start Quiz")
                             .font(.largeTitle)
-                    }.padding()
-                        .foregroundColor(.white)
-                        .background(
-                            RoundedRectangle(
-                                cornerRadius: 10,
-                                style: .continuous
-                            ))
-                        .foregroundColor(.purple)
-                        .padding(50)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.purple))
+                    }
+                    .padding()
                 }
                 
                 if startQuiz {
-                    VStack{
-                        VStack {
+                    Spacer()
+                    
+                        Group {
+                            if subject == .ipad {
+                                Text("iPad Basics")
+                                    .foregroundStyle(subject.color)
+                            }
+                            if subject == .troubleshooting {
+                                Text("Troubleshooting")
+                                    .foregroundStyle(subject.color)
+                            }
+                            if subject == .videoProd {
+                                Text("Video Production")
+                                    .foregroundStyle(subject.color)
+                            }
+                            if subject == .keynote {
+                                Text("Keynote")
+                                    .foregroundStyle(subject.color)
+                            }
+                            if subject == .numbers {
+                                Text("Numbers")
+                                    .foregroundStyle(subject.color)
+                            }
+                            if subject == .pages {
+                                Text("Pages")
+                                    .foregroundStyle(subject.color)
+                            }
+                        }                    .font(Font.custom("Truecat", size: 80))
+                            .multilineTextAlignment(.center)
+                    
+                
+                    VStack {
+                        if let question = filteredQuestion {
                             Text(question.prompt)
-                                .font(.system(size: 40))
-                                .padding(35)
-                                .frame(width: 600)
+                                .font(.largeTitle)
+                                .fontWeight(.bold)
+                                .foregroundColor(subject.color)
+                                .padding()
                             
-                            VStack {
-                                Button(question.answers[0]){
-                                    evaluate(answer: question.answers[0])
-                                }.disabled(questionService.answered)
-                                    .buttonStyle(TestButton())
-                                
-                                Button(question.answers[1]){
-                                    evaluate(answer: question.answers[1])
-                                }.disabled(questionService.answered)
-                                    .buttonStyle(TestButton())
-                                
-                                Button(question.answers[2]){
-                                    evaluate(answer: question.answers[2])
-                                }.disabled(questionService.answered)
-                                    .buttonStyle(TestButton())
-                                
-                                Button(question.answers[3]){
-                                    evaluate(answer: question.answers[3])
-                                }.disabled(questionService.answered)
-                                    .buttonStyle(TestButton())
-                                
+                            // Answer Buttons
+                            ForEach(0..<question.answers.count, id: \.self) { index in
+                                Button(action: {
+                                    evaluate(answer: question.answers[index])
+                                }) {
+                                    Text(question.answers[index])
+                                        .foregroundColor(.white)
+                                        .padding()
+                                        .font(.title)
+                                        .frame(maxWidth: 600) // Limit width to 600
+                                        .background(RoundedRectangle(cornerRadius: 10).foregroundColor(subject.color))
+                                        .padding(.horizontal)
+                                }
+                                .disabled(showAlert)
                             }
-                            .alert(isPresented: $showAlert) {
-                                Alert(
-                                    title: Text(alertTitle),
-                                    message: Text(alertMessage),
-                                    dismissButton: .default(Text("OK")) {
-                                        if numberOfQuestionsPresented < 5 {
-                                            if let newQuestion = questionService.fetchRandomQuestionForSubject(.ipad) {
-                                                // Update your current question or perform any necessary actions
-                                                question = newQuestion
-                                            }
-                                        } else {
-                                            showEndTestView = true
-                                        }
-                                    }
-                                )
-                            }
+                            .padding(.vertical)
+                            
+                            
+                        } else {
+                            Text("Loading...")
+                                .font(.title)
+                                .foregroundColor(.white)
+                                .padding()
+                                .onAppear {
+                                    fetchRandomQuestionForSubject()
+                                }
                         }
+                        
+                        // Progress
                         Text("Question \(numberOfQuestionsPresented) / 5")
                             .font(.title)
-                            .bold()
-                            .foregroundStyle(.purple)
+                            .fontWeight(.bold)
+                            .foregroundColor(.black)
+                            .padding(.top)
+                    }
+                    .padding()
+                    .background(RoundedRectangle(cornerRadius: 50).foregroundColor(.white).opacity(0.5))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 50)
+                            .stroke(Color.gray.opacity(0.5), lineWidth: 2) // Light gray border
+                    )
+                    .padding()
+                    .alert(isPresented: $showAlert) {
+                        Alert(
+                            title: Text(alertTitle),
+                            message: Text(alertMessage),
+                            dismissButton: .default(Text("OK")) {
+                                showAlert = false
+                                if numberOfQuestionsPresented < 5 {
+                                    fetchRandomQuestionForSubject()
+                                } else {
+                                    endTest = true
+                                    showEndTestView = true
+                                }
+                            }
+                        )
+                    }
+                    Spacer()
+                    Text("\(tryScore, specifier: "%.f") correct")
+                        .foregroundStyle(Color.gray)
+                        .font(.largeTitle)
+                    Spacer()
+
+                }
+                
+                // End Test View (after 5 questions)
+                if showEndTestView == false && endTest == true {
+                    HStack(spacing: 20) {
+                        NavigationLink(destination:
+                                        AnyView(TestDetailView(subject: subject))) {
+                            Text("Try Again")
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                                .padding()
+                                .frame(maxWidth: .infinity)
+                                .background(RoundedRectangle(cornerRadius: 40).foregroundColor(subject.color))
+                        }
                         
-                        HStack {
-                            if numberOfQuestionsPresented == 5 && tryScore < 4 {
-                                NavigationLink(destination: TestView())
-                                {
-                                    Text("Try Again")
-                                        .font(.largeTitle)
-                                }
-                                .padding()
+                        NavigationLink(destination: AnyView(ContentView(subtitles: pagesSubtitles))) {
+                            Text("Main Menu")
+                                .font(.title)
+                                .fontWeight(.bold)
                                 .foregroundColor(.white)
-                                .background(
-                                    RoundedRectangle(
-                                        cornerRadius: 30,
-                                        style: .continuous
-                                    ))
-                                .foregroundColor(.blue)
-                                .padding(50)
-                                
-                                NavigationLink(destination: ContentView(subtitles: pagesSubtitles))
-                                {
-                                    Text("Main Menu")
-                                        .font(.largeTitle)
-                                }
                                 .padding()
-                                .foregroundColor(.white)
-                                .background(
-                                    RoundedRectangle(
-                                        cornerRadius: 30,
-                                        style: .continuous
-                                    ))
-                                .foregroundColor(.blue)
-                                .padding(50)
-                            }
+                                .frame(maxWidth: .infinity)
+                                .background(RoundedRectangle(cornerRadius: 40).foregroundColor(subject.color))
+                        }
+                    }
+                    .padding()
+                }
+            }
+        }
+        .sheet(isPresented: $showEndTestView) {
+            EndTestView(tryScore: tryScore)
+                .onAppear {
+                    // Update if test is passed
+                    if tryScore >= 4 {
+                        switch subject {
+                        case .ipad: subjectStatusManager.ipadPassed = true
+                        case .troubleshooting: subjectStatusManager.troubleshootingPassed = true
+                        case .pages: subjectStatusManager.pagesPassed = true
+                        case .keynote: subjectStatusManager.keynotePassed = true
+                        case .numbers: subjectStatusManager.numbersPassed = true
+                        case .videoProd: subjectStatusManager.videoProdPassed = true
+                        case .Learn: break
+                        case .Test: break
+                        case .Status: break
                             
-                            if numberOfQuestionsPresented == 5 && tryScore >= 4 {
-                                NavigationLink(destination: StatusView())
-                                {
-                                    Text("Check Status")
-                                        .font(.title)
-                                }
-                                .padding()
-                                .foregroundColor(.white)
-                                .background(
-                                    RoundedRectangle(
-                                        cornerRadius: 30,
-                                        style: .continuous
-                                    ))
-                                .foregroundColor(.blue)
-                                .padding(50)
-                                
-                                
-                                NavigationLink(destination: ContentView(subtitles: pagesSubtitles))
-                                {
-                                    Text("Main Menu")
-                                        .font(.title)
-                                }
-                                .padding()
-                                .foregroundColor(.white)
-                                .background(
-                                    RoundedRectangle(
-                                        cornerRadius: 30,
-                                        style: .continuous
-                                    ))
-                                .foregroundColor(.blue)
-                                .padding(50)
-                            }
                         }
                     }
                 }
-            }
-            .sheet(isPresented: $showEndTestView) {
-                EndTestView()
-            }
         }
-        .navigationBarBackButtonHidden()
     }
-                        func evaluate(answer: String) {
-                                if numberOfQuestionsPresented < 5 {
-                                numberOfQuestionsPresented += 1
-                            } else {
-                                    print("\(numberOfQuestionsPresented) of 5")
-                                }
-                                        
-                                if answer == question.correctAnswer {
-                                tryScore += 1
-                                showAlert = true
-                                alertTitle = "Correct!"
-                                alertMessage = "Well done!"
-                            } else {
-                                showAlert = true
-                                alertTitle = "Incorrect!"
-                                alertMessage = "Try again."
-                            }
-                        }
-                    }
-                                    
-                                    
+    
+    // Function to fetch a random question for the subject
+    func fetchRandomQuestionForSubject() {
+        filteredQuestion = questionService.fetchRandomQuestionForSubject(subject)
+        numberOfQuestionsPresented += 1
+    }
+    
+    // Function to evaluate the selected answer
+    func evaluate(answer: String) {
+        if let question = filteredQuestion {
+            if answer == question.correctAnswer {
+                tryScore += 1
+                alertTitle = "Correct!"
+                alertMessage = "Keep it up!"
+            } else {
+                alertTitle = "Incorrect!"
+                alertMessage = "You can do it."
+            }
+            showAlert = true
+        }
+    }
+}
+#Preview {
+    TestDetailView(subject: .ipad)
+}

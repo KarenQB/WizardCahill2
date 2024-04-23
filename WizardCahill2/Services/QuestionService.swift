@@ -9,7 +9,7 @@ class QuestionService: ObservableObject {
     var currentQuestion: Question?
     var answered: Bool = false
     var correct: Bool = false
-
+    
     init(){
         loadQuestions()
     }

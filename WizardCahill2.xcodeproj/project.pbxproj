@@ -15,6 +15,8 @@
 		DC42F89C2BD0472700CD2EF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC42F89B2BD0472700CD2EF4 /* Assets.xcassets */; };
 		DC42F89D2BD0472700CD2EF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC42F89B2BD0472700CD2EF4 /* Assets.xcassets */; };
 		DC42F89E2BD0472700CD2EF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC42F89B2BD0472700CD2EF4 /* Assets.xcassets */; };
+		DC4E998E2BD6D18800942017 /* ipad-apps.mov in Resources */ = {isa = PBXBuildFile; fileRef = DC4E998D2BD6D18800942017 /* ipad-apps.mov */; };
+		DC4E99902BD6F98500942017 /* SubjectStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4E998F2BD6F98500942017 /* SubjectStatusManager.swift */; };
 		DC6A32602BCDE88F0001D364 /* EndTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6A325F2BCDE88F0001D364 /* EndTestView.swift */; };
 		DCA112482BD18FCB002113EA /* WizardSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA112472BD18FCB002113EA /* WizardSequence.swift */; };
 		DCA8834B2BCD82CA00C72627 /* LearnDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA8834A2BCD82CA00C72627 /* LearnDetailView.swift */; };
@@ -69,6 +71,8 @@
 		DC2FFA4F2BC6FFDF0067FC37 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DC42F8982BCEECE500CD2EF4 /* SubtitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleView.swift; sourceTree = "<group>"; };
 		DC42F89B2BD0472700CD2EF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC4E998D2BD6D18800942017 /* ipad-apps.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "ipad-apps.mov"; sourceTree = "<group>"; };
+		DC4E998F2BD6F98500942017 /* SubjectStatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectStatusManager.swift; sourceTree = "<group>"; };
 		DC6A325F2BCDE88F0001D364 /* EndTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndTestView.swift; sourceTree = "<group>"; };
 		DCA112472BD18FCB002113EA /* WizardSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardSequence.swift; sourceTree = "<group>"; };
 		DCA8834A2BCD82CA00C72627 /* LearnDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnDetailView.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 			children = (
 				DCEBA7822BBC9FBD006D6808 /* Info.plist */,
 				DC42F89B2BD0472700CD2EF4 /* Assets.xcassets */,
+				DC4E998F2BD6F98500942017 /* SubjectStatusManager.swift */,
 				DC2FFA4F2BC6FFDF0067FC37 /* ContentView.swift */,
 				DCA112472BD18FCB002113EA /* WizardSequence.swift */,
 				DCEBA7732BBC9F83006D6808 /* LearnView.swift */,
@@ -164,6 +169,7 @@
 				DCEBA7742BBC9F83006D6808 /* BackgroundImage.swift */,
 				DCEBA7722BBC9F83006D6808 /* TestButton.swift */,
 				DCEBA7442BBC9F68006D6808 /* WizardCahill2App.swift */,
+				DC4E998D2BD6D18800942017 /* ipad-apps.mov */,
 				DCEBA74A2BBC9F6A006D6808 /* Preview Content */,
 			);
 			path = WizardCahill2;
@@ -299,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC4E998E2BD6D18800942017 /* ipad-apps.mov in Resources */,
 				DCEBA74C2BBC9F6A006D6808 /* Preview Assets.xcassets in Resources */,
 				DC42F89C2BD0472700CD2EF4 /* Assets.xcassets in Resources */,
 				DCEBA77B2BBC9F83006D6808 /* Truecat.otf in Resources */,
@@ -328,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC4E99902BD6F98500942017 /* SubjectStatusManager.swift in Sources */,
 				DCEBA77F2BBC9F83006D6808 /* TestDetailView.swift in Sources */,
 				DCEBA7802BBC9F83006D6808 /* QuestionService.swift in Sources */,
 				DC0E257A2BC9BA74008CE3D8 /* TestView.swift in Sources */,

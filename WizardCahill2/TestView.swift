@@ -33,7 +33,7 @@ struct TestView: View {
                 
                 LazyVGrid(columns: columns, spacing: 20) {
                     
-                    NavigationLink(destination: TestDetailView(subject: .ipad, questionService: questionService, question: questionService.fetchRandomQuestionForSubject(.ipad)!)) {
+                    NavigationLink(destination: TestDetailView(subject: .ipad)) {
                         VStack {
                             Image("ipadBasics")
                                 .resizable()
@@ -44,7 +44,7 @@ struct TestView: View {
                     }
                     
                     
-                    NavigationLink(destination: TestDetailView(subject: .troubleshooting, questionService: questionService, question: questionService.fetchRandomQuestionForSubject(.troubleshooting)!)) {
+                    NavigationLink(destination: TestDetailView(subject: .troubleshooting)) {
                         VStack {
                             Image("troubleCloud")
                                 .resizable()
@@ -54,7 +54,7 @@ struct TestView: View {
                     }
                     
                     
-                    NavigationLink(destination: TestDetailView(subject: .pages, questionService: questionService, question: questionService.fetchRandomQuestionForSubject(.pages)!)) {
+                    NavigationLink(destination: TestDetailView(subject: .pages)) {
                         VStack {
                             Image("pagesCloud")
                                 .resizable()
@@ -63,7 +63,7 @@ struct TestView: View {
                         } .foregroundColor(.green)
                     }
                     
-                    NavigationLink(destination: TestDetailView(subject: .numbers, questionService: questionService, question: questionService.fetchRandomQuestionForSubject(.numbers)!)) {
+                    NavigationLink(destination: TestDetailView(subject: .numbers)) {
                         VStack {
                             Image("numbersCloud")
                                 .resizable()
@@ -72,7 +72,7 @@ struct TestView: View {
                         } .foregroundColor(.green)
                     }
                     
-                    NavigationLink(destination: TestDetailView(subject: .keynote, questionService: questionService, question: questionService.fetchRandomQuestionForSubject(.keynote)!)) {
+                    NavigationLink(destination: TestDetailView(subject: .keynote)) {
                         VStack {
                             Image("keynoteCloud")
                                 .resizable()
@@ -81,7 +81,7 @@ struct TestView: View {
                         } .foregroundColor(.green)
                     }
                     
-                    NavigationLink(destination: TestDetailView(subject: .videoProd, questionService: questionService, question: questionService.fetchRandomQuestionForSubject(.videoProd)!)) {
+                    NavigationLink(destination: TestDetailView(subject: .videoProd)) {
                         VStack {
                             
                             Image("videoProdCloud")

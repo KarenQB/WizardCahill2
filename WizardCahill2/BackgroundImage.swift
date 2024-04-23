@@ -3,6 +3,7 @@ import SwiftUI
 struct BackgroundImage: View {
     
     @State var animate: Bool = false
+   
     let animation: Animation = Animation.linear(duration: 30.0).repeatForever(autoreverses: false)
     
     
