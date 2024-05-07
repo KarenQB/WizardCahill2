@@ -1,3 +1,1 @@
-So the look is pretty much here. We are working on some image sequences for the wizard. 
-
-The main need now is that the LearnService details aren't working. 
+The last update has all placeholders in... today,we're adding more content. This is a milestone to come back to.
